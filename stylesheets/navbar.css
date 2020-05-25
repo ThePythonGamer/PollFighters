@@ -1,27 +1,12 @@
-body {
-  color: white;
-  background-color: #3b3b3b;
-  margin: 0;
-}
-  
-div {
-  margin-bottom: 10px;
-}
-
-iFrame {
-  width: 99%;
-  border-style: none;
-}
-
 li a {
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  color: white;
-}
-
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+  }
+  
 li a:hover {
   background-color: #525252;
 }
@@ -53,6 +38,11 @@ li a:hover {
 #logout {
   float: right;
 }
+
+#logobanner {
+  width: 55%;
+}
+
 /*   
 .sticky {
   position: fixed;

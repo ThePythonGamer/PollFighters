@@ -1,7 +1,8 @@
 <html>
   <head>
     <title>PollFighters</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
     <script type="text/javascript">
       function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
@@ -10,7 +11,7 @@
   </head>
   <body>
     <div class=header>
-      <img src="images/logodark.png">
+      <img id="logobanner" src="images/logodark.png">
     </div>
     <ul id="navbar">
       <li<><a href="home.html" target="main">Home</a></li>
@@ -37,6 +38,8 @@
     <iframe src="home.html" name="main" frameborder="0" scrolling="no" onload="resizeIframe(this)">
     </iframe>
     <hr>
-    <p>Copyright &copy2020 PollFighters</p>
+    <div>
+      <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
+    </div>
   </body>
 </html>

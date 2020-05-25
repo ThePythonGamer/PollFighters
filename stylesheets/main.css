@@ -1,0 +1,16 @@
+body {
+  color: white;
+  background-color: #3b3b3b;
+  margin: 0;
+}
+  
+div {
+  margin: 10px;
+}
+
+iFrame {
+  width: 99%;
+  border-style: none;
+  margin: 10px;
+}
+
