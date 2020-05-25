@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>PollFighters</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!--<script type="text/javascript" src="navbar.js"></script>-->
+  </head>
+  <body>
+    <div class=header>
+      <img id="logo" src="logodark.png">
+    </div>
+    <br>
+    <div id="navbar">
+      <a href="polls.asp">Polls</a>
+      <a href="leaders.asp">Leaderboard</a>
+      <a href="about.html">About</a>
+      <a style="float:right;" href="index.asp">Logout</a>
+    </div>
+    <div class="content">
+      <p>Got a burning topic your friend won't stop blabbering about? Grab your keyboard and fight!</p>
+      <h1>PINEAPPLE ON PIZZA SUCKS</h1>
+      <h1>NO IT DOESN'T</h1>
+      <h1>But jack! The latest pizza has been shown to be loved by all people, even the devious pineapple peoples.</h1>
+      <h1>WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME WATCH ME </h1>
+      <img src="https://cdn.discordapp.com/attachments/678614067988004902/692548756888879144/unknown.png">
+      <img src="https://cdn.discordapp.com/attachments/678614067988004902/692548756888879144/unknown.png">
+      <img src="https://cdn.discordapp.com/attachments/678614067988004902/692548756888879144/unknown.png">
+    </div>
+    <script>
+      window.onscroll = function() {myFunction()};
+
+      var navbar = document.getElementById("navbar");
+
+      var sticky = navbar.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+    </script>
+  </body>
+</html>
