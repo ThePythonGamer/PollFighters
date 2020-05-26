@@ -1,6 +1,10 @@
-<%@ language=VBScript %>
-<% Option Explicit %>
-<%
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+    <head>
+        <title>Hello World</title>
+            <!--<%
     Dim objConn
     Dim strConnection
     set objConn = server.CreateObject("ADODB.Connection")
@@ -17,4 +21,10 @@
 
     objConn.Close
     set objConn = Nothing
-%>
+%> -->
+    </head>
+
+    <body>
+        <% Response.Write("I am back!") %>
+    </body>
+</html>
