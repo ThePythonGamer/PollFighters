@@ -6,8 +6,25 @@
     <title>PollFighters</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/CSS-Reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+    <script type="text/javascript">
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+    </script>
   </head>
   <body>
+    <div class=header>
+      <img id="logobanner" src="images/logodark.png">
+    </div>
+    <ul id="navbar">
+      <li<><a href="home.html" target="main">Home</a></li>
+      <li><a href="polls.asp" target="main">Polls</a></li>
+      <li><a href="leaders.asp" target="main">Leaderboard</a></li>
+      <li><a href="about.html" target="main">About</a></li>
+      <li><a href="account.asp" target="main">Account Details</a></li>
+      <li><a style="float:right;" href="index.asp" target="main">Logout</a></li>
+    </ul>
     <br>
     <h2>About <strong>PollFighters</strong></h2>
     <br><br>
