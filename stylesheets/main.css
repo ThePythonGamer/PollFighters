@@ -37,6 +37,10 @@ button {
   width: 100%;
 }
 
+button:hover {
+  opacity: 0.8;
+}
+
 h1 {
   font-size: 30px;
 }
@@ -60,6 +64,10 @@ h2 {
 .footer {
   font-style: italic;
   margin: 0;
+}
+
+.active {
+  background-color: #47d147;
 }
 
 /* Id's */
