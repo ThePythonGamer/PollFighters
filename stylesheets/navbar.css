@@ -1,7 +1,3 @@
-li:last-child {
-  float: right;
-}
-
 li a {
   float: left;
   display: block;
