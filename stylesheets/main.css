@@ -56,6 +56,10 @@ h2 {
   margin: 10px;
 }
 
+.footer {
+  font-style: italic;
+}
+
 /* Id's */
 #credits {
   list-style-type: none;

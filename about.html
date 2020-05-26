@@ -6,8 +6,25 @@
     <title>PollFighters</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/CSS-Reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+    <script type="text/javascript">
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+    </script>
   </head>
   <body>
+    <div class=header>
+      <img id="logobanner" src="images/logodark.png">
+    </div>
+    <ul id="navbar">
+      <li<><a href="home.html">Home</a></li>
+      <li><a href="polls.asp">Polls</a></li>
+      <li><a href="leaders.asp" >Leaderboard</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="account.asp">Account Details</a></li>
+      <li><a style="float:right;" href="index.asp">Logout</a></li>
+    </ul>
     <br>
     <h2>About <strong>PollFighters</strong></h2>
     <br><br>
@@ -22,5 +39,9 @@
       <li>Liam Breton</li>
       <li>Lei Shi Jiang</li>
     </ul>
+    <div class="footer">
+      <hr>
+      <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
+    </div>
   </body>
 </html>
