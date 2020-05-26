@@ -1,44 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <html>
   <head>
-    <title>PollFighters</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/CSS-Reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
-    <script type="text/javascript">
-      function resizeIframe(obj) {
-        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-      }
-    </script>
   </head>
   <body>
-    <div class=header>
-      <img id="logobanner" src="images/logodark.png">
-    </div>
-    <ul id="navbar">
-      <li<><a href="home.html" target="main">Home</a></li>
-      <li><a href="polls.asp" target="main">Polls</a></li>
-      <li><a href="leaders.asp" target="main">Leaderboard</a></li>
-      <li><a href="about.html" target="main">About</a></li>
-      <li><a style="float:right;" href="index.asp" target="main">Logout</a></li>
-    </ul>
-    <!-- <script >
-      window.onscroll = function() {myFunction()};
-
-      var navbar = document.getElementById("navbar");
-
-      var sticky = navbar.offsetTop;
-
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-    </script> -->
-    <iframe src="home.html" name="main" frameborder="0" scrolling="no" onload="resizeIframe(this)">
-    </iframe>
+    <h1>Please login to access PollFighters</h1>
+    <form>
+      <div class="Container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+        <br>
+        <label for="psword"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" name="psword" required>
+        <br>
+        <button type="submit">Login</button>
+      </div>
+    </form>
     <hr>
-    <div>
+    <div class="footer">
       <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
     </div>
   </body>
