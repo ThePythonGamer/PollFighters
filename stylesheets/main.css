@@ -19,7 +19,7 @@ img {
 }
 
 input[type=text], input[type=password] {
-  width: 30%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -28,13 +28,13 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: #47d147;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 30%;
+  width: 100%;
 }
 
 h1 {
@@ -48,6 +48,7 @@ h2 {
 /* Classes */
 .container {
   padding: 16px;
+  width: 30%;
 }
 
 .content {
@@ -58,6 +59,7 @@ h2 {
 
 .footer {
   font-style: italic;
+  margin: 0;
 }
 
 /* Id's */
@@ -65,6 +67,3 @@ h2 {
   list-style-type: none;
   font-weight: bold;
 }
-
-
-
