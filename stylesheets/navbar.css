@@ -16,6 +16,10 @@ li a:hover:not(.active) {
   text-align: center; 
 }
 
+.active {
+  background-color: #47d147;
+}
+
 #navbar {
   list-style-type: none;
   margin: 0;
