@@ -1,40 +1,19 @@
 /* Properties */
 body {
   color: white;
-  background-color: #3b3b3b;
-  font-family: sans-serif;
-  font-size: 20px;
+  background-color: #121212;
+}
+
+hr {
+  background-color: white;
 }
 
 a {
   color: #47d147;
 }
 
-div {
-  margin: 10px;
-}
-
 img {
-  width: 95%
-}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #47d147;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+  width: 75%
 }
 
 button:hover {
@@ -50,20 +29,15 @@ h2 {
 }
 
 /* Classes */
-.container {
-  padding: 16px;
-  width: 30%;
-}
-
 .content {
   width: 99%;
   border-style: none;
   margin: 10px;
 }
 
-.footer {
-  font-style: italic;
-  margin: 0;
+.header {
+  padding: 30px;
+  text-align: center; 
 }
 
 /* Id's */
