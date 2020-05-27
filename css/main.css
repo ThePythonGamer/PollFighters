@@ -62,6 +62,10 @@ h2 {
   margin: auto;
 }
 
+.devs {
+  color: var(--accent2-color);
+}
+
 /* Id's */
 #credits {
   list-style-type: none;
