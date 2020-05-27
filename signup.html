@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <form action="" class="credentials">
+    <form action="" class="credentials needs-validation" novalidate>
       <div class="form-group">
         <label for="uname"><b>Username</b></label>
         <input type="text" name="uname" placeholder="Create a Username" class="form-control" required>
@@ -20,7 +20,7 @@
         <label for="psword"><b>Password</b></label>
         <input type="text" placeholder="Create a Password" name="psword" class="form-control" required>
       </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn btn-success">Sign Up</button>
         
         <span style="float:right;">I already have an account, bring me <a href="index.html">back</a>!</span>
       </div>
@@ -28,5 +28,16 @@
     <hr>
     <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
     <a href="home.html">secret</a>
+    <script>
+      var form = document.querySelector('.needs-validation');
+
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      })
+    </script>
   </body>
 </html>
