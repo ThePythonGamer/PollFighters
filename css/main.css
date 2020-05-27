@@ -45,3 +45,8 @@ h2 {
   list-style-type: none;
   font-weight: bold;
 }
+
+.col {
+  text-align: center;
+}
+
