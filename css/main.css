@@ -40,13 +40,19 @@ h2 {
   text-align: center; 
 }
 
+.col {
+  text-align: center;
+}
+
+.credentials {
+  width: 450px;
+  margin: auto;
+}
+
 /* Id's */
 #credits {
   list-style-type: none;
   font-weight: bold;
 }
 
-.col {
-  text-align: center;
-}
 
