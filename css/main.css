@@ -55,4 +55,14 @@ h2 {
   font-weight: bold;
 }
 
+#red {
+  color: rgb(224, 0, 0);
+}
 
+#green {
+  color: #47d147;
+}
+
+#blue {
+  color: skyblue;
+}
