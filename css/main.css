@@ -24,6 +24,10 @@ h1 {
   font-size: 30px;
 }
 
+h1 a:hover {
+  color: rgb(224, 0, 0);
+}
+
 h2 {
   font-size: 25px;
 }
