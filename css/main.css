@@ -42,6 +42,8 @@ h2 {
 
 .col {
   text-align: center;
+  border-bottom-style: double;
+  border-width: 2px;
 }
 
 .credentials {
@@ -65,4 +67,8 @@ h2 {
 
 #blue {
   color: skyblue;
+}
+
+p strong {
+  color: white;
 }
