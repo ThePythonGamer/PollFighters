@@ -11,14 +11,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <%
-      if len(Session("ErrorMsg")) > 0 then
-        Response.write "<p class='alert alert-info'>"
-        Response.write Session("ErrorMsg")
-        Response.write "</p>"
-      end if
-    %>
+    
     <div id="page-container">
+      <%
+        if len(Session("ErrorMsg")) > 0 then
+          Response.write "<p class='alert alert-info'>"
+          Response.write Session("ErrorMsg")
+          Response.write "</p>"
+        end if
+      %>
       <div id="content-wrap" class="verticle-center">
         <form method="post" action="VerifyUser.asp" class="credentials needs-validation" novalidate>
           <div class="form-group">
