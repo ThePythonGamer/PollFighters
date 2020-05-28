@@ -4,6 +4,7 @@
 <%
   Const adLockOptimistic = 3
 
+  Dim ErrorMsg
   Dim objConn
   Dim strConnection
   Set objConn = Server.CreateObject("ADODB.Connection")
@@ -27,4 +28,8 @@
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
+
+  ErrorMsg = "You've successfully created an account! Log in to gain access to PollFighters!"
+  Session("ErrorMsg") = ErrorMsg
+  Server.Transfer("login.asp")
 %>
