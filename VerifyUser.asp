@@ -27,13 +27,12 @@
       if Password = objRS("Password") then 
         Verified = True
       else
-        ErrorMsg = "Please enter the correct password!"
+        ErrorMsg = "Please enter correct login credentials!"
       end if
     else
-      ErrorMsg = "Please enter a correct username or create an account!"
+      ErrorMsg = "Please enter correct login credentials!"
     end if
     objRS.MoveNext
-    Session("PwdAttempts") = Attempts
   loop
 
   objRS.Close 
@@ -51,6 +50,7 @@
     Session("Verified") = False
     Session("Username") = ""
     Session("ErrorMsg") = ErrorMsg
+    Session("PwdAttempts") = Attempts
     Server.Transfer("login.asp")
   end if 
 %>
