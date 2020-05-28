@@ -41,10 +41,10 @@
   objConn.Close
   Set objConn = Nothing 
 
-  if Verified Then
+  if Verified = True Then
     Session("Verified") = True
     Session("Username") = Username
-    Session("ErrorMsg"0 = ""
+    Session("ErrorMsg") = ""
     Session("PwdAttempts") = 0
     Server.Transfer("home.html")
   else

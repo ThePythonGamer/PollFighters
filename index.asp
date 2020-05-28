@@ -19,19 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <!-- <div class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>You've been logged out!</h2>
-            <button type="button" class="close"><span>&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <p>Log back in to access the website</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <form method="post" action="VerifyUser.asp" class="credentials needs-validation" novalidate>
       <div class="form-group">
         <label for="uname"><b>Username</b></label>
