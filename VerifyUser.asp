@@ -34,7 +34,7 @@
     end if
     objRS.MoveNext
   loop
-
+  ' Figure out how to count attempts and lock accounts
   objRS.Close 
   Set objRS = Nothing
   objConn.Close

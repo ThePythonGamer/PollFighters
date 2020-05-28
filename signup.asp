@@ -1,17 +1,9 @@
 <%@ Language=VBScript %>
 <% Option Explicit %>
 
-<%
-  Session("Username") = ""
-  Session("Password") = ""
-  Session("Verified") = False
-  Session("PwdAttempts") = 0
-  Session("ErrorMsg") = ""
-%>
-
 <html>
   <head>
-    <title>PollFighters Login</title>
+    <title>PollFighters Sign Up</title>
     <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
     <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
@@ -19,18 +11,19 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <form method="post" action="VerifyUser.asp" class="credentials needs-validation" novalidate>
+    <form method="post" action="signup.asp" class="credentials needs-validation" novalidate>
       <div class="form-group">
         <label for="uname"><b>Username</b></label>
-        <input type="text" name="uname" placeholder="Enter Username" class="form-control" required>
+        <input type="text" name="uname" placeholder="Create a Username" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="psword"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psword" class="form-control" required>
+        <input type="text" placeholder="Create a Password" name="psword" class="form-control" required>
       </div>
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-success">Sign Up</button>
         
-        <span style="float:right;">If you do not have an account yet, <a href="signup.html">Sign Up</a>!</span>
+        <span style="float:right;">I already have an account, bring me <a href="index.asp">back</a>!</span>
+      </div>
     </form>
     <hr>
     <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
