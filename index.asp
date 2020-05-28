@@ -1,3 +1,63 @@
 <%@ Language=VBScript %>
 <% Option Explicit %>
-<% Response.Write("I am back!") %>
+
+<%
+  Session("Username") = ""
+  Session("Password") = ""
+  Session("Verified") = False
+  Session("PwdAttempts") = 0
+  Session("ErrorMsg") = ""
+%>
+
+<html>
+  <head>
+    <title>PollFighters Login</title>
+    <link rel="icon" href="images/Favicon-16px.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="images/Favicon-32px.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="images/Favicon-192px.png" type="image/png" sizes="192x192">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <!-- <div class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>You've been logged out!</h2>
+            <button type="button" class="close"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <p>Log back in to access the website</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <form action="" class="credentials needs-validation" novalidate>
+      <div class="form-group">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" name="uname" placeholder="Enter Username" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="psword"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" name="psword" class="form-control" required>
+      </div>
+        <button type="submit" class="btn btn-success">Login</button>
+        
+        <span style="float:right;">If you do not have an account yet, <a href="signup.html">Sign Up</a>!</span>
+    </form>
+    <hr>
+    <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
+    <a href="home.html">secret</a>
+    <script>
+      var form = document.querySelector('.needs-validation');
+
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      })
+    </script>
+  </body>
+</html>
