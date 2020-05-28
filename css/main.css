@@ -76,6 +76,14 @@ p strong {
   height: 250px;
 }
 
+.verticle-center{
+  min-height: 100%;
+  min-height: 95vh;
+
+  display:flex;
+  align-items: center;
+}
+
 /* Id's */
 #credits {
   list-style-type: none;

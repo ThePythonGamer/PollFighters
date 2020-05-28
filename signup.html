@@ -12,22 +12,19 @@
   </head>
   <body>
     <div id="page-container">
-      <div id="content-wrap">
-        <div class="container">
-        <form method="post" action="signup.asp" class="credentials needs-validation align-middle" novalidate>
-          <div class="form-group">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" name="newuname" placeholder="Create a Username" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="psword"><b>Password</b></label>
-            <input type="password" placeholder="Create a Password" name="newpword" class="form-control" required>
-          </div>
-            <button type="submit" class="btn btn-success">Sign Up</button>
-            
-            <span style="float:right;">I already have an account, bring me <a href="index.asp">back</a>!</span>
-          </div>
-        </form>
+      <div id="content-wrap" class="verticle-center">
+            <form method="post" action="signup.asp" class="credentials needs-validation" novalidate>
+              <div class="form-group">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" name="newuname" placeholder="Create a Username" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="psword"><b>Password</b></label>
+                <input type="password" placeholder="Create a Password" name="newpword" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-success">Sign Up</button>      
+              <span style="float:right;">I already have an account, bring me <a href="index.asp">back</a>!</span>
+            </form>
       </div>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
