@@ -32,14 +32,14 @@
         </div>
       </div>
     </div> -->
-    <form action="" class="credentials needs-validation" novalidate>
+    <form action="VerifyUser.asp" class="credentials needs-validation" novalidate>
       <div class="form-group">
         <label for="uname"><b>Username</b></label>
         <input type="text" name="uname" placeholder="Enter Username" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="psword"><b>Password</b></label>
-        <input type="text" placeholder="Enter Password" name="psword" class="form-control" required>
+        <input type="password" placeholder="Enter Password" name="psword" class="form-control" required>
       </div>
         <button type="submit" class="btn btn-success">Login</button>
         
