@@ -33,7 +33,6 @@
     </form>
     <hr>
     <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
-    <a href="home.html">secret</a>
     <script>
       var form = document.querySelector('.needs-validation');
 

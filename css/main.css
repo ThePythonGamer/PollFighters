@@ -40,6 +40,10 @@ h2 {
   font-size: 25px;
 }
 
+p strong {
+  color: white;
+}
+
 /* Classes */
 .content {
   width: 99%;
@@ -90,6 +94,19 @@ h2 {
   color: var(--accent2-color);
 }
 
-p strong {
-  color: white;
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.54rem;
+  border-top: 1px solid white;
 }
