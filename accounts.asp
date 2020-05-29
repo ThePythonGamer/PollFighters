@@ -32,7 +32,9 @@
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open strSQL, objConn, , adLockOptimistic
 
+  response.write("Username: ")
   response.write(Form(Username))
+  response.write("Current Password: ")
   response.write(Form(Password))
 
   objRS.Close
