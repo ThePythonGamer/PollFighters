@@ -1,0 +1,2 @@
+<%@ Language=VBScript %>
+<% Option Explicit %>

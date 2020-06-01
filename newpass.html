@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <title>PollFighters Sign Up</title>
+    <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div id="page-container">
+      <div id="content-wrap" class="verticle-center">
+        <form method="post" action="setpass.asp" class="credentials needs-validation" novalidate>
+            <div class="form-group">
+            <label for="psword"><b>Set Password</b></label>
+            <input type="password" placeholder="Set Your New Password" name="setpword" class="form-control" required minlength=6>
+            </div>
+            <button type="submit" class="btn btn-success">Set New password</button>      
+            <span style="float:right;"><a href="accounts.asp">Cancel password change!</a></span>
+        </form>
+      </div>
+      <footer id="footer">
+        <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
+      </footer>
+    </div>
+
+    <script>
+      var form = document.querySelector('.needs-validation');
+
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      })
+    </script>
+  </body>
+</html>
