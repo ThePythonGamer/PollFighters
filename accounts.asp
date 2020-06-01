@@ -16,10 +16,10 @@
 </html>
 
 <%
-
-  Dim ErrorMsg
+  Const adLockOptimistic = 3
   Dim objConn
   Dim strConnection
+
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -33,7 +33,7 @@
   objRS.Open strSQL, objConn, , adLockOptimistic
 
   response.write("Username: ")
-  response.write(Form(Username))
+  response.write(Username)
   response.write("Current Password: ")
   response.write(Form(Password))
 
