@@ -19,8 +19,7 @@
 
   Do while not objRS.EOF
     if Session("Username") = objRS("Username") then
-        objRS.Edit
-        objRS("Password") = Request.Form("setpword")
+        objRS.Fields("Password") = Request.Form("setpword")
         objRS.Update
       end if
     objRS.MoveNext
