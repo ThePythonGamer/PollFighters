@@ -43,6 +43,7 @@
   if Verified = True Then
     Session("Verified") = True
     Session("Username") = Username
+    Session("Password") = Password
     Session("ErrorMsg") = ""
     Session("PwdAttempts") = 0
     Server.Transfer("home.html")
