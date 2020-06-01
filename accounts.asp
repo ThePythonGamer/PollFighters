@@ -65,6 +65,13 @@
           response.write(Session("Username"))
           response.write("Current Password: ")
 
+          if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
+            response.write("<br><strong>You cannot delete or change the password of this account.</strong>")
+          else
+            response.write("<a href='newpass.html'>Change your password.</a>")
+            response.write("<a href='delete-user.asp'>DELETE YOUR ACCOUNT</a>")
+          end if
+
           objRS.Close
           set objRs = Nothing
           objConn.Close
