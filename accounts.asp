@@ -33,9 +33,8 @@
   objRS.Open strSQL, objConn, , adLockOptimistic
 
   response.write("Username: ")
-  response.write(Username)
+  response.write(Session("Username"))
   response.write("Current Password: ")
-  response.write(Form(Password))
 
   objRS.Close
   set objRs = Nothing
