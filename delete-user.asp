@@ -31,7 +31,7 @@
   objRS.Close
   set objRs = Nothing
   objConn.Close
-  set objConn = Nothing
+  set objConn = Nothi
 
   Session("ErrorMsg") = ErrorMsg
   Server.Transfer("login.asp")
