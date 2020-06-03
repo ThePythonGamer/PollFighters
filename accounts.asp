@@ -61,15 +61,13 @@
           Set objRS = Server.CreateObject("ADODB.Recordset")
           objRS.Open strSQL, objConn, , adLockOptimistic
 
-          response.write("Username: ")
-          response.write(Session("Username"))
-          response.write("Current Password: ")
+          response.write("Username: " & Session("Username"))
 
           if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
             response.write("<br><strong>You cannot delete or change the password of this account.</strong>")
           else
-            response.write("<a href='newpass.html'>Change your password.</a>")
-            response.write("<a href='delete-user.asp'>DELETE YOUR ACCOUNT</a>")
+            response.write("<br> <a href='newpass.html'>Change your password</a>")
+            response.write("<br> <a href='delete-user.asp'>DELETE YOUR ACCOUNT</a>")
           end if
 
           objRS.Close

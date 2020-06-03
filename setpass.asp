@@ -2,6 +2,7 @@
 <% Option Explicit %>
 
 <%
+  Const adLockOptimistic = 3
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
@@ -15,23 +16,27 @@
 
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
-  objRS.Open "Users", objConn
+  objRS.Open "Users", objConn, , adLockOptimistic
 
   Do while not objRS.EOF
     if Session("Username") = objRS("Username") then
         objRS.Fields("Password") = Request.Form("setpword")
         objRS.Update
-      end if
+		
+		ErrorMsg = "You have successfully changed your password"
+		Session("ErrorMsg") = ErrorMsg
+ 
+		Response.write "<p class='alert alert-info'>"
+        Response.write Session("ErrorMsg")
+        Response.write "</p>"		
+    end if
     objRS.MoveNext
   loop
-
 
   objRS.Close
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
 
-  ErrorMsg = "You have successfully changed your password"
-  Session("ErrorMsg") = ErrorMsg
   Server.Transfer("accounts.asp")
 %>
