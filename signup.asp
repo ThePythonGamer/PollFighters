@@ -19,17 +19,36 @@
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open strSQL, objConn, , adLockOptimistic
 
-  objRS.AddNew
-  objRS("Username") = Request.Form("newuname")
-  objRS("Password") = Request.Form("newpword")
-  objRS.Update
+  Dim Username, Password
+  Dim Taken
+  Username = Request.Form("newuname")
+  Password = Request.Form("newpword")
+  Taken = false
+
+  do while not objRS.EOF
+    if Username = objRS("Username") Then
+      Taken = True
+    end if
+    objRS.MoveNext
+  loop
+
+  if Taken = true then
+    ErrorMsg = "This username is taken, Please choose a different Username!" 
+    Server.Transfer("signup-form.asp")
+  elseif Taken = false then 
+    objRS.AddNew
+    objRS("Username") = Username
+    objRS("Password") = Password
+    objRS.Update
+    ErrorMsg = "You've successfully created an account! Log in to gain access to PollFighters!"
+    Session("ErrorMsg") = ErrorMsg
+    Server.Transfer("login.asp")
+  end if
 
   objRS.Close
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
 
-  ErrorMsg = "You've successfully created an account! Log in to gain access to PollFighters!"
-  Session("ErrorMsg") = ErrorMsg
-  Server.Transfer("login.asp")
+  
 %>
