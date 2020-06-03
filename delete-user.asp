@@ -2,7 +2,7 @@
 <% Option Explicit %>
 
 <%
-
+  Const adLockOptimistic = 3
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
@@ -16,7 +16,7 @@
 
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
-  objRS.Open strSQL, objConn, ,
+  objRS.Open "Users", objConn, , adLockOptimistic
 
   do while not objRS.EOF
     if Session("Username") = objRS("Username") then
@@ -26,12 +26,13 @@
     else
         ErrorMsg = "There was an error deleting your account, please try again"
     end if
+    objRS.MoveNext
   loop
   
   objRS.Close
   set objRs = Nothing
   objConn.Close
-  set objConn = Nothi
+  set objConn = Nothing
 
   Session("ErrorMsg") = ErrorMsg
   Server.Transfer("login.asp")
