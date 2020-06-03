@@ -64,14 +64,14 @@
             Dim Choice
             Dim pID
 
-            Choice = Request(Choice)
+            Choice = Request.Form("Choice")
 
             response.write(Choice)
 
-            pID = Request.Form(Vote)
+            pID = Request.Form("Vote")
 
             Do while not objRS.EOF
-              if ID = objRS("ID") then
+              if pID = objRS("ID") then
                 if Choice = objRS("Choice1") then
                   objRS.Fields("Choice1Votes") = objRS("Choice1Votes") + 1
                   objRS.Update
