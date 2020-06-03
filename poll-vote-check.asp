@@ -61,15 +61,31 @@
             Set objRS = Server.CreateObject("ADODB.Recordset")
             objRS.Open "Polls", objConn, , adLockOptimistic
 
-            Dim Option1, Option2
-            Dim ErrorMsg, Verified, Attempts
+            Dim Choice
+            Dim pID
 
-            Option1 = Request.Form("Option1")
-            Option2 = Request.Form("Option2")
+            Choice = Request(Choice)
+
+            response.write(Choice)
+
+            pID = Request.Form(Vote)
 
             Do while not objRS.EOF
-              if objRS("PTitle") = "" then
-            
+              if ID = objRS("ID") then
+                if Choice = objRS("Choice1") then
+                  objRS.Fields("Choice1Votes") = objRS("Choice1Votes") + 1
+                  objRS.Update
+                elseif Choice = objRS("Choice2") then
+                  objRS.Fields("Choice2Votes") = objRS("Choice2Votes") + 1
+                  objRS.Update
+                end if
+              response.write("Current votes:<br>")
+              response.write(objRS("Choice1"))
+              response.write(": ")
+              response.write(objRS("Choice1Votes"))
+              response.write(objRS("Choice2"))
+              response.write(": ")
+              response.write(objRS("Choice2Votes"))
               end if
               objRS.MoveNext
             loop
