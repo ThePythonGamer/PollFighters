@@ -69,6 +69,8 @@
             Dim InMajority
             Dim Guess
             Dim frmGuess
+            Dim Choice1Percent
+            Dim Choice2Percent
 
             Choice = Request.Form("Choice")
             frmGuess = Request.Form("Guess")
@@ -102,14 +104,22 @@
                     InMajority = True
                   end if
                 end if
+              Choice1Percent = (Choice1Votes / (Choice1Votes + Choice2Votes)) * 100
+              Choice2Percent = (Choice2Votes / (Choice1Votes + Choice2Votes)) * 100
               response.write("<h2>Current votes:</h2><br><h3>")
               response.write(objRS("Choice1"))
               response.write(": ")
               response.write(objRS("Choice1Votes"))
+              response.write("--")
+              response.write(Choice1Percent)
+              response.write("%")
               response.write("<br>")
               response.write(objRS("Choice2"))
               response.write(": ")
               response.write(objRS("Choice2Votes"))
+              response.write("--")
+              response.write(Choice2Percent)
+              response.write("%")
               response.write("</h3><br><br>")
               end if
               objRS.MoveNext
@@ -137,7 +147,29 @@
             objRS.Close 
             Set objRS = Nothing
             objConn.Close
-            Set objConn = Nothing 
+            Set objConn = Nothing
+            
+            Set objConn = Server.CreateObject("ADODB.Connection")
+            strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
+
+            objConn.Open (strConnection)
+
+            Set objRS = Server.CreateObject("ADODB.Recordset")
+            objRS.Open "Users", objConn, , adLockOptimistic
+            
+            Do while not objRS.EOF
+              if Session("Username") = objRS("Username") then
+                objRS.Fields("TotalVotes") = objRS("TotalVotes") + 1
+                objRS.Fields("IDsVoted") = objRS("IDsVoted") + pID
+                objRS.Update
+                if Guess = True then
+                  objRS.Fields("Points") = objRS("Points") + 1
+                  objRS.Update
+                end if
+              end if
+              objRS.MoveNext
+            loop
+
           %>
           </div>
       </div>

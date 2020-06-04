@@ -62,6 +62,18 @@
           objRS.Open strSQL, objConn, , adLockOptimistic
 
           response.write("Username: " & Session("Username"))
+          response.write("<br>")
+          response.write("Current Password: " & Session("Password"))
+          response.write("<br><br>")
+          
+          do while not objRS.EOF
+            if Session("Username") = objRS("Username") Then
+              response.write("Your votes: " & objRS("TotalVotes"))
+              response.write("<br>")
+              response.write("Your points: " &  objRS("Points"))
+            end if
+            objRS.MoveNext
+          loop
 
           if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
             response.write("<br><strong>You cannot delete or change the password of this account.</strong>")

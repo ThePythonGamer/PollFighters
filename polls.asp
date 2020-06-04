@@ -50,14 +50,44 @@
           <hr>
           <ul style="list-style-type:none;" class="poll-list">
           <%
+            
             Dim objConn
             Dim strConnection
+            Set objConn = Server.CreateObject("ADODB.Connection")
+            strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
+
+            objConn.Open (strConnection)
+
+            Dim objRS
+            Set objRS = Server.CreateObject("ADODB.Recordset")
+            objRS.Open "Users", objConn
+
+            Dim IDsVoted
+            Dim X
+            Dim AlreadyVoted
+            Dim IDsVotedLen
+
+            AlreadyVoted = False
+
+            Do while not objRS.EOF
+              if Session("Username") = objRS("Username") then
+                IDsVoted = objRS("IDsVoted")
+              end if
+                objRS.MoveNext
+            loop
+
+            IDsVotedLen = len(IDsVoted)
+
+            objRS.Close 
+            Set objRS = Nothing
+            objConn.Close
+            Set objConn = Nothing
+
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Polls.mdb")
 
             objConn.Open (strConnection)
 
-            Dim objRS
             Set objRS = Server.CreateObject("ADODB.Recordset")
             objRS.Open "Polls", objConn
 
@@ -66,29 +96,35 @@
 
             Do while not objRS.EOF
               if objRS("PTitle") <> "" then
-                response.write("<li>")
-                response.write(objRs("PTitle"))
-                response.write("<br>")
-                response.write("<form method='post' action='poll-vote-check.asp' novalidate> <div class='form-group'>")
-                response.write("<input type='radio' id='Option1' name='Choice' value='Option1'>")
-                response.write("<label for='Option1'>")
-                response.write(objRS("Choice1"))
-                response.write("</label><br>")
-                response.write("<input type='radio' id='Option2' name='Choice' value='Option2'>")
-                response.write("<label for='Option2'>")
-                response.write(objRS("Choice2"))
-                response.write("</label><br>")
-                response.write("<input type='radio' id='Guess1' name='Guess' value='Guess1'>")
-                response.write("<label for='Guess1'>I think choice 1 is winning.</label><br>")
-                response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
-                response.write("<label for='Guess2'>I think choice 2 is winning.</label><br>")
-                response.write("<input type='submit' class='btn btn-success' name='Vote' value='")
-                response.write(objRS("ID"))
-                response.write("'>Vote</input>")
-                response.write("</form>")
-                response.write("<br><br><br>")
-
-
+                for X = 1 to IDsVotedLen
+                  if Cint(mid(IDsVoted,X,1)) = objRS("ID") then
+                    AlreadyVoted = True
+                  end if
+                next
+                if AlreadyVoted = False then
+                  response.write("<li>")
+                  response.write(objRs("PTitle"))
+                  response.write("<br>")
+                  response.write("<form method='post' action='poll-vote-check.asp' novalidate> <div class='form-group'>")
+                  response.write("<input type='radio' id='Option1' name='Choice' value='Option1'>")
+                  response.write("<label for='Option1'>")
+                  response.write(objRS("Choice1"))
+                  response.write("</label><br>")
+                  response.write("<input type='radio' id='Option2' name='Choice' value='Option2'>")
+                  response.write("<label for='Option2'>")
+                  response.write(objRS("Choice2"))
+                  response.write("</label><br>")
+                  response.write("<input type='radio' id='Guess1' name='Guess' value='Guess1'>")
+                  response.write("<label for='Guess1'>I think choice 1 is winning.</label><br>")
+                  response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
+                  response.write("<label for='Guess2'>I think choice 2 is winning.</label><br>")
+                  response.write("<input type='submit' class='btn btn-success' name='Vote' value='")
+                  response.write(objRS("ID"))
+                  response.write("'>Vote</input>")
+                  response.write("</form>")
+                  response.write("<br><br><br>")
+                end if
+                AlreadyVoted = False
               end if
               objRS.MoveNext
             loop
