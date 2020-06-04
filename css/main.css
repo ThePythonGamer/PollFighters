@@ -21,7 +21,8 @@ a {
 }
 
 img {
-  width: 75%
+  width: 75%;
+  height: 95%;
 }
 
 button:hover {
