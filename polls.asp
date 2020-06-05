@@ -135,6 +135,7 @@
             Set objConn = Nothing 
           %>
           </ul>
+        </div>
       </div>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>

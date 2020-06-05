@@ -11,11 +11,11 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+    <div class="header">
+      <img id="logobanner" src="images/logodark-trans.png">
+    </div>
     <div id="page-container">
       <div id="content-wrap">
-        <div class=header>
-          <img id="logobanner" src="images/logodark-trans.png">
-        </div>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
           <a class="navbar-brand" href="home.html">PollFighters</a>
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -42,8 +42,7 @@
               </li>
             </ul> 
           </div>
-        </nav>
-      </div>
+        </nav>  
         <%
           Const adLockOptimistic = 3
           Dim objConn
@@ -87,6 +86,7 @@
           objConn.Close
           set objConn = Nothing
         %>
+      </div>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
       </footer>

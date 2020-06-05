@@ -22,7 +22,7 @@ a {
 
 img {
   width: 75%;
-  height: 95%;
+  /*please dont add height unless we change the header to use a class since it screws the header badly*/
 }
 
 button:hover {
