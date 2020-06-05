@@ -85,6 +85,10 @@ p strong {
   align-items: center;
 }
 
+.poll-list {
+  text-align: center; /*just placeholder styling for the polls*/ 
+}
+
 /* Id's */
 #credits {
   list-style-type: none;

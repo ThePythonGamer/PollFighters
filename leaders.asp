@@ -45,11 +45,9 @@
         </nav>
         
         <div class="content">
-          <h1>Polls:</h1>
-          <hr>
-          <ul style="list-style-type:none;" class="poll-list">
           <%
-            
+            Const adLockOptimistic = 3
+
             Dim objConn
             Dim strConnection
             Set objConn = Server.CreateObject("ADODB.Connection")
@@ -57,83 +55,15 @@
 
             objConn.Open (strConnection)
 
+            Dim strSQL
+            strSQL = "SELECT * FROM Users"
+
             Dim objRS
             Set objRS = Server.CreateObject("ADODB.Recordset")
-            objRS.Open "Users", objConn
+            objRS.Open strSQL, objConn, , adLockOptimistic
 
-            Dim IDsVoted
-            Dim X
-            Dim AlreadyVoted
-            Dim IDsVotedLen
-
-            AlreadyVoted = False
-
-            Do while not objRS.EOF
-              if Session("Username") = objRS("Username") then
-                IDsVoted = objRS("IDsVoted")
-              end if
-                objRS.MoveNext
-            loop
-
-            IDsVotedLen = len(IDsVoted)
-
-            objRS.Close 
-            Set objRS = Nothing
-            objConn.Close
-            Set objConn = Nothing
-
-            Set objConn = Server.CreateObject("ADODB.Connection")
-            strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Polls.mdb")
-
-            objConn.Open (strConnection)
-
-            Set objRS = Server.CreateObject("ADODB.Recordset")
-            objRS.Open "Polls", objConn
-
-            Dim Choice1Votes
-            Dim Choice2Votes
-
-            Do while not objRS.EOF
-              if objRS("PTitle") <> "" then
-                for X = 1 to IDsVotedLen
-                  if Cint(mid(IDsVoted,X,1)) = objRS("ID") then
-                    AlreadyVoted = True
-                  end if
-                next
-                if AlreadyVoted = False then
-                  response.write("<li>")
-                  response.write(objRs("PTitle"))
-                  response.write("<br>")
-                  response.write("<form method='post' action='poll-vote-check.asp' novalidate> <div class='form-group'>")
-                  response.write("<input type='radio' id='Option1' name='Choice' value='Option1'>")
-                  response.write("<label for='Option1'>")
-                  response.write(objRS("Choice1"))
-                  response.write("</label><br>")
-                  response.write("<input type='radio' id='Option2' name='Choice' value='Option2'>")
-                  response.write("<label for='Option2'>")
-                  response.write(objRS("Choice2"))
-                  response.write("</label><br>")
-                  response.write("<input type='radio' id='Guess1' name='Guess' value='Guess1'>")
-                  response.write("<label for='Guess1'>I think choice 1 is winning.</label><br>")
-                  response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
-                  response.write("<label for='Guess2'>I think choice 2 is winning.</label><br>")
-                  response.write("<input type='submit' class='btn btn-success' name='Vote' value='")
-                  response.write(objRS("ID"))
-                  response.write("'>Vote</input>")
-                  response.write("</form>")
-                  response.write("<br><br><br>")
-                end if
-                AlreadyVoted = False
-              end if
-              objRS.MoveNext
-            loop
-
-            objRS.Close 
-            Set objRS = Nothing
-            objConn.Close
-            Set objConn = Nothing 
+            
           %>
-          </ul>
         </div>
       </div>
       <footer id="footer">
