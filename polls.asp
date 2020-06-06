@@ -49,12 +49,6 @@
           <form action="poll-create.html">
             <input type="submit" class="btn btn-success" value="Create a poll">
           </form>
-
-          <% if Session("Admin") = True then
-              response.write("<form action='poll-delete.asp'>")
-              response.write("<input type='submit' class='btn btn-success' value='DELETE A POLL'</form>")
-            end if
-          %>
           <hr>
           <ul style="list-style-type:none;" class="poll-list">
           <%
@@ -130,6 +124,9 @@
                   response.write(objRS("ID"))
                   response.write("'>Vote</button>")
                   response.write("</form>")
+                  if Session("Admin") = True then
+                    response.write("<br><a href='poll-delete.asp'>DELETE POLL</a>")
+                  end if
                   response.write("<br><br><br>")
                 end if
                 AlreadyVoted = False
