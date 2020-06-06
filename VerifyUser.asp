@@ -34,11 +34,6 @@
     end if
     objRS.MoveNext
   loop
-  ' Figure out how to count attempts and lock accounts
-  objRS.Close 
-  Set objRS = Nothing
-  objConn.Close
-  Set objConn = Nothing 
 
   if Verified = True Then
     Session("Verified") = True
@@ -58,4 +53,8 @@
     Server.Transfer("login.asp")
   end if 
 
+  objRS.Close 
+  Set objRS = Nothing
+  objConn.Close
+  Set objConn = Nothing 
 %>
