@@ -46,6 +46,15 @@
         
         <div class="content">
           <h1>Polls:</h1>
+          <form action="poll-create.html">
+            <input type="submit" class="btn btn-success" value="Create a poll">
+          </form>
+
+          <% if Session("Admin") = True then
+              response.write("<form action='poll-delete.asp'>")
+              response.write("<input type='submit' class='btn btn-success' value='DELETE A POLL'</form>")
+            end if
+          %>
           <hr>
           <ul style="list-style-type:none;" class="poll-list">
           <%
