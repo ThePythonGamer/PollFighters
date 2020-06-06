@@ -170,6 +170,10 @@
               objRS.MoveNext
             loop
 
+            objRS.Close 
+            Set objRS = Nothing
+            objConn.Close
+            Set objConn = Nothing
           %>
           </div>
       </div>
