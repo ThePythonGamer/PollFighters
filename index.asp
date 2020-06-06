@@ -5,7 +5,6 @@
   Session("Username") = ""
   Session("Password") = ""
   Session("Verified") = False
-  Session("PwdAttempts") = 0
   Session("ErrorMsg") = ""
   Session("Admin") = False
 %>

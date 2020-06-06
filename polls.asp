@@ -72,7 +72,7 @@
               if Session("Username") = objRS("Username") then
                 IDsVoted = objRS("IDsVoted")
               end if
-                objRS.MoveNext
+              objRS.MoveNext
             loop
 
             IDsVotedLen = len(IDsVoted)
@@ -117,9 +117,9 @@
                   response.write("<label for='Guess1'>I think choice 1 is winning.</label><br>")
                   response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
                   response.write("<label for='Guess2'>I think choice 2 is winning.</label><br>")
-                  response.write("<input type='submit' class='btn btn-success' name='Vote' value='")
+                  response.write("<button type='submit' class='btn btn-success' name='Vote' value='")
                   response.write(objRS("ID"))
-                  response.write("'>Vote</input>")
+                  response.write("'>Vote</button>")
                   response.write("</form>")
                   response.write("<br><br><br>")
                 end if

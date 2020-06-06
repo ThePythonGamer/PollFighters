@@ -27,7 +27,7 @@
     if Username = objRS("Username") then
       if Password = objRS("Password") then 
         Verified = True
-        Admin = objRS("NotAdmin")
+        Admin = objRS("Admin")
       else
         ErrorMsg = "Please enter correct login credentials!"
       end if
@@ -41,7 +41,7 @@
     Session("Verified") = True
     Session("Username") = Username
     Session("Password") = Password
-    If Admin = 1 then
+    If Admin = -1 then
       Session("Admin") = True
     end if
     Session("ErrorMsg") = ""
