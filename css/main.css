@@ -89,6 +89,10 @@ p strong {
   text-align: center; /*just placeholder styling for the polls*/ 
 }
 
+.leaderboard {
+  border: black solid 1px;
+}
+
 /* Id's */
 #credits {
   list-style-type: none;

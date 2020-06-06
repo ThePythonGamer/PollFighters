@@ -77,7 +77,7 @@
             objRS.Open strSQL, objConn
           %>
 
-          <table border=1>
+          <table class="leaderboard">
             <tr>
               <th><a href="<%=strURL%>?SortOrder=2">Username</a></th>
               <th><a href="<%=strURL%>?SortOrder=1">Points</a></th>
