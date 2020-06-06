@@ -46,7 +46,11 @@
         
         <div class="content">
           <%
-            Const adLockOptimistic = 3
+            Dim strURL
+            strURL = "leaders.asp"
+
+            Dim IsAdmin
+            IsAdmin = Session("Admin")
 
             Dim objConn
             Dim strConnection
@@ -58,12 +62,47 @@
             Dim strSQL
             strSQL = "SELECT * FROM Users"
 
+            Dim SortOrder
+            SortOrder = Request("SortOrder")
+
+            Select Case SortOrder
+              Case 1
+                strSQL = strSQL & " ORDER BY Points"
+              Case 2
+                strSQL = strSQL & " ORDER BY Username"
+            End Select
+
             Dim objRS
             Set objRS = Server.CreateObject("ADODB.Recordset")
-            objRS.Open strSQL, objConn, , adLockOptimistic
-
-            
+            objRS.Open strSQL, objConn
           %>
+
+          <table border=1>
+            <tr>
+              <th><a href="<%=strURL%>?SortOrder=2">Username</a></th>
+              <th><a href="<%=strURL%>?SortOrder=1">Points</a></th>
+              <% 
+                if IsAdmin = True Then
+                  response.write "<th>Reset Points?</th>"
+                  response.write "<th>Delete User</th>"
+                end if
+              %>
+            </tr>
+
+            <%
+              Do while not objRS.EOF
+                response.write "<tr>"
+                response.write "<td>" & objRS("Username") & "</td>"
+                response.write "<td>" & objRS("Points") & "</td>"
+                if IsAdmin = True Then
+                  response.write "<td><a href='reset.asp'>RESET</a></td>"
+                  response.write "<td><a href='delete-points.asp'>DELETE</a></td>"
+                end if
+                response.write "</tr>"
+                objRS.MoveNext
+              Loop
+            %>
+            </table>
         </div>
       </div>
       <footer id="footer">
@@ -74,4 +113,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
+  <%
+    objRS.Close
+    Set objRS = Nothing
+
+    objConn.Close
+    Set objConn = Nothing
+  %>
 </html>

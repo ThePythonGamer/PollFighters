@@ -44,6 +44,9 @@
     Session("Verified") = True
     Session("Username") = Username
     Session("Password") = Password
+    If objRS("NotAdmin") = -1 then
+      Session("Admin") = True
+    end if
     Session("ErrorMsg") = ""
     Session("PwdAttempts") = 0
     Server.Transfer("home.html")
@@ -54,4 +57,5 @@
     Session("PwdAttempts") = Attempts
     Server.Transfer("login.asp")
   end if 
+
 %>
