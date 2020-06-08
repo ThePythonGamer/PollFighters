@@ -46,7 +46,7 @@
     end if
     Session("ErrorMsg") = ""
     Session("PwdAttempts") = 0
-    Server.Transfer("home.html")
+    Server.Transfer("home.asp")
   else
     Session("Verified") = False
     Session("Username") = ""
