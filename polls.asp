@@ -21,6 +21,14 @@
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
     <div id="page-container">
+      <%
+        if len(Session("ErrorMsg")) > 0 then
+          Response.write "<p class='alert alert-info'>"
+          Response.write Session("ErrorMsg")
+          Response.write "</p>"
+          Session("ErrorMsg") = ""
+        end if
+      %>
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
           <a class="navbar-brand" href="home.asp">PollFighters</a>
