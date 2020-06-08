@@ -131,7 +131,11 @@
                   response.write("'>Vote</button>")
                   response.write("</form>")
                   if Session("Admin") = True then
-                    response.write("<br><a href='poll-delete.asp'>DELETE POLL</a>")
+                    response.write("<form method='post' action='poll-delete.asp' novalidate>")
+                    response.write("<button type='submit' class='btn btn-danger' name='PollID' value='")
+                    response.write(objRS("ID"))
+                    response.write("'>DELETE POLL</button>")
+                    response.write("</form>")
                   end if
                   response.write("<br><br><br>")
                 end if

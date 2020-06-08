@@ -40,6 +40,7 @@
   Session("ErrorMsg") = ErrorMsg
 
   Server.Transfer("polls.asp")
+  Server.Transfer("polls.asp")
 
   objRS.Close 
   Set objRS = Nothing
