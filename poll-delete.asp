@@ -16,11 +16,23 @@
 
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
-  objRS.Open "Users", objConn, , adLockOptimistic
+  objRS.Open "Polls", objConn, , adLockOptimistic
 
-  objRS.delete
-  objRS.Update
-  ErrorMsg = "The poll has been successfully deleted!"
+  Dim pID
+
+  pID = Request.Form("PollID")
+
+  do while not objRS.EOF
+    if Cint(pID) = objRS("ID") then
+      objRS.delete
+      objRS.Update
+      ErrorMsg = "The poll has been successfully deleted!"
+    else
+      ErrorMsg = "There was an error deleting this poll."
+    end if
+    objRS.MoveNext
+  loop
+
   
   objRS.Close
   set objRs = Nothing
@@ -29,3 +41,4 @@
 
   Session("ErrorMsg") = ErrorMsg
   Server.Transfer("polls.asp")
+%>
