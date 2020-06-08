@@ -81,9 +81,11 @@
 
             Select Case SortOrder
               Case 1
-                strSQL = strSQL & " ORDER BY Points"
-              Case 2
                 strSQL = strSQL & " ORDER BY Username"
+              Case 2
+                strSQL = strSQL & " ORDER BY TotalVotes"
+              Case 3
+                strSQL = strSQL & " ORDER BY Points"
             End Select
 
             Dim objRS
@@ -93,8 +95,10 @@
 
           <table class="leaderboard">
             <tr>
-              <th><a href="<%=strURL%>?SortOrder=2">Username</a></th>
-              <th><a href="<%=strURL%>?SortOrder=1">Points</a></th>
+              <th><a href="<%=strURL%>?SortOrder=1">Username</a></th>
+              <th><a href="<%=strURL%>?SortOrder=2">Voted</a></th>
+              <th><a href="<%=strURL%>?SortOrder=3">Points</a></th>
+              <th>Guess %</th>
               <% 
                 if IsAdmin = True Then
                   response.write "<th>Reset Points?</th>"
@@ -104,10 +108,19 @@
             </tr>
 
             <%
+              Dim GuessPercent
+              
               Do while not objRS.EOF
                 response.write "<tr>"
                 response.write "<td>" & objRS("Username") & "</td>"
+                response.write "<td>" & objRS("TotalVotes") & "</td>"
                 response.write "<td>" & objRS("Points") & "</td>"
+                if objRS("TotalVotes") > 0 and objRS("Points") > 0 then
+                  GuessPercent = (objRS("Points") / objRS("TotalVotes")) * 100
+                  response.write "<td>" & Round(GuessPercent, 1) & "</td>"
+                else
+                  response.write "<td>N/A</td>"
+                end if
                 if IsAdmin = True Then
                   If objRS("Admin") = -1 or objRS("Username") = "GUEST" then
                     response.write("<td>-</td>")
