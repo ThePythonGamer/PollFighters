@@ -21,6 +21,14 @@
       End If
     %>
     <div id="page-container">
+      <%
+        if len(Session("ErrorMsg")) > 0 then
+          Response.write "<p class='alert alert-info'>"
+          Response.write Session("ErrorMsg")
+          Response.write "</p>"
+          Session("ErrorMsg") = ""
+        end if
+      %>
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
           <a class="navbar-brand" href="home.asp">PollFighters</a>
@@ -101,12 +109,17 @@
                 response.write "<td>" & objRS("Username") & "</td>"
                 response.write "<td>" & objRS("Points") & "</td>"
                 if IsAdmin = True Then
+                  If objRS("Admin") = -1 or objRS("Username") = "GUEST" then
+                    response.write("<td>-</td>")
+                    response.write("<td>-</td>")
+                  else
                   response.write("<td><form method='post' action='leaders-reset.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
                   response.write(objRS("Username"))
                   response.write("'>Reset</button></form></td>")
                   response.write("<td><form method='post' action='leaders-delete.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
                   response.write(objRS("Username"))
                   response.write("'>Delete</button></form></td>")
+                  end if
                 end if
                 response.write "</tr>"
                 objRS.MoveNext
