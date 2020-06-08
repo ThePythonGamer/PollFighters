@@ -17,7 +17,7 @@
     <div id="page-container">
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-          <a class="navbar-brand" href="home.html">PollFighters</a>
+          <a class="navbar-brand" href="home.asp">PollFighters</a>
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +30,7 @@
                 <a href="leaders.asp" class="nav-link">Leaderboard</a>
               </li>
               <li class="nav-item">
-                <a href="about.html" class="nav-link">About</a>
+                <a href="about.asp" class="nav-link">About</a>
               </li>
               <li class="nav-item">
                 <a href="accounts.asp" class="nav-link">Account Details</a>
