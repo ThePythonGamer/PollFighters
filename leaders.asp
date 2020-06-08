@@ -101,8 +101,12 @@
                 response.write "<td>" & objRS("Username") & "</td>"
                 response.write "<td>" & objRS("Points") & "</td>"
                 if IsAdmin = True Then
-                  response.write "<td><a href='reset.asp'>RESET</a></td>"
-                  response.write "<td><a href='delete-points.asp'>DELETE</a></td>"
+                  response.write("<td><form method='post' action='leaders-reset.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
+                  response.write(objRS("Username"))
+                  response.write("'>Reset</button></form></td>")
+                  response.write("<td><form method='post' action='leaders-delete.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
+                  response.write(objRS("Username"))
+                  response.write("'>Delete</button></form></td>")
                 end if
                 response.write "</tr>"
                 objRS.MoveNext
