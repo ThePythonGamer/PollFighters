@@ -19,6 +19,7 @@
   Dim Option1
   Dim Option2
   Dim Vote
+  Dim pID
 
   Title = Request.Form("Title")
   Option1 = Request.Form("Option1")
@@ -36,14 +37,43 @@
   end if
   objRS.Update
 
+  Do while not objRS.EOF
+    if objRS("PTitle") = Title then
+      pID = objRS("ID")
+    end if
+    objRS.MoveNext
+  loop
+
   ErrorMsg = "A poll has been created."
   Session("ErrorMsg") = ErrorMsg
-
-  Server.Transfer("polls.asp")
-  Server.Transfer("polls.asp")
 
   objRS.Close 
   Set objRS = Nothing
   objConn.Close
   Set objConn = Nothing
+
+  Set objConn = Server.CreateObject("ADODB.Connection")
+  strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
+
+  objConn.Open (strConnection)
+
+  Set objRS = Server.CreateObject("ADODB.Recordset")
+  objRS.Open "Users", objConn, , adLockOptimistic
+
+  Do while not objRS.EOF
+    if Not Session("Admin") then
+      if Session("Username") = objRS("Username") then
+        objRS.Fields("IDsVoted") = objRS("IDsVoted") + " " + pID
+        objRS.Update
+      end if
+    end if
+    objRS.MoveNext
+  loop
+
+  objRS.Close 
+  Set objRS = Nothing
+  objConn.Close
+  Set objConn = Nothing
+
+  Server.Transfer("poll-redirect.html")
 %>

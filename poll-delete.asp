@@ -19,7 +19,9 @@
   objRS.Open "Polls", objConn, , adLockOptimistic
 
   Dim pID
+  Dim Success
 
+  Success = False
   pID = Request.Form("PollID")
 
   do while not objRS.EOF
@@ -27,7 +29,8 @@
       objRS.delete
       objRS.Update
       ErrorMsg = "The poll has been successfully deleted!"
-    else
+      Success = True
+    elseif Success = False then
       ErrorMsg = "There was an error deleting this poll."
     end if
     objRS.MoveNext
