@@ -113,7 +113,10 @@
             Do while not objRS.EOF
               if objRS("PTitle") <> "" then
                 for X = 1 to IDsVotedLen
-                  if Cint(mid(IDsVoted,X,1)) = objRS("ID") then
+                  if mid(IDsVoted,X,1) = " " And X < IDsVotedLen then
+                    X = X + 1
+                  end if
+                  if Cint(mid(IDsVoted,X,len(ObjRS("ID")))) = objRS("ID") then
                     AlreadyVoted = True
                   end if
                 next

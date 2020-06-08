@@ -160,7 +160,7 @@
             Do while not objRS.EOF
               if Session("Username") = objRS("Username") then
                 objRS.Fields("TotalVotes") = objRS("TotalVotes") + 1
-                objRS.Fields("IDsVoted") = objRS("IDsVoted") + pID
+                objRS.Fields("IDsVoted") = objRS("IDsVoted") + " " + pID
                 objRS.Update
                 if Guess = True then
                   objRS.Fields("Points") = objRS("Points") + 1
