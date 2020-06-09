@@ -3,23 +3,29 @@
 
 <html>
   <head>
+    <!--Title of website-->
     <title>PollFighters</title>
+    <!--Displays favicon image-->  
     <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
     <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
+    <!--Links to stylesheets-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+    <!--Detect if user has login-->
     <%
       If Not Session("Verified") Then
         Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
         Server.Transfer("login.asp")
       End If
     %>
+    <!--Displays the logo-->
     <div class="header">
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
+    <!--Displays the navigation bar where the user can go to different pages of the website-->
     <div id="page-container">
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -49,18 +55,21 @@
             </ul> 
           </div>
         </nav>
-        
+        <!--Allows the user to create a poll-->
         <form method="post" action="poll-creation.asp" class="credentials needs-validation" novalidate>
+          <!--Allows the user to create title for the poll-->
           <div class="form-group">
             <label for="Title"><b>Title</b></label>
             <input type="text" name="Title" placeholder="Enter the title of your poll" class="form-control" maxlength ="64" required>
           </div>
+          <!--Allows the user to create the first option for the poll-->
           <div class="form-group">
             <label for="Option1"><b>Option 1</b></label>
             <input type="text" name="Option1" placeholder="Enter the first option" class="form-control" required>
             <label for="VoteOption1">Vote for Option 1</label>
             <input type="radio" id="VoteOption1" name="vote" value="Voted1" required>
           </div>
+          <!--Allows the user to create the second option for the poll-->
           <div class="form-group">
             <label for="Option2"><b>Option 2</b></label>
             <input type="text" placeholder="Enter the second option" name="Option2" class="form-control" required>
@@ -76,6 +85,7 @@
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
       </footer>
     </div>
+    <!--Checks for invalid characters in polls-->
     <script>
       var form = document.querySelector('.needs-validation');
 
@@ -87,6 +97,7 @@
         form.classList.add('was-validated');
       })
     </script>
+    <!--Retives bootstrap plugin-->  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
