@@ -59,11 +59,14 @@
         </nav>
         
         <div class="content">
-          <h1>Polls:</h1>
-          <form action="poll-create.asp">
+          <h1>Polls:
+          <form action="poll-create.asp" style="float: right;">
             <input type="submit" class="btn btn-success" value="Create a poll">
           </form>
-          <hr>
+          </h1>
+        </div>
+        <hr>
+        <div class="content">
           <ul style="list-style-type:none;" class="poll-list">
           <%
             
@@ -137,13 +140,13 @@
                   response.write("<label for='Guess1'>I think choice 1 is winning.</label><br>")
                   response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
                   response.write("<label for='Guess2'>I think choice 2 is winning.</label><br>")
-                  response.write("<button type='submit' class='btn btn-success' name='Vote' value='")
+                  response.write("<button type='submit' class='btn btn-success' style='float: left;' name='Vote' value='")
                   response.write(objRS("ID"))
                   response.write("'>Vote</button>")
                   response.write("</form>")
                   if Session("Admin") = True then
                     response.write("<form method='post' action='poll-delete.asp' novalidate>")
-                    response.write("<button type='submit' class='btn btn-danger' name='PollID' value='")
+                    response.write("<button type='submit' class='btn btn-danger' style='float: right;' name='PollID' value='")
                     response.write(objRS("ID"))
                     response.write("'>DELETE POLL</button>")
                     response.write("</form>")
