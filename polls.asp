@@ -13,7 +13,7 @@
   <body>
     <%
       If Not Session("Verified") Then
-        Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
+        Session("ErrorMsg") = "You must log in before accessing PollFighters!"
         Server.Transfer("login.asp")
       End If
     %>
@@ -121,7 +121,7 @@
                 response.write("<li>")
                 response.write(objRs("PTitle"))
                 response.write("<br>")
-                response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation' id='form")
+                response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation PollForm' id='form")
                 response.write(FormCounter)
                 response.write("' novalidate> <div class='form-group'>")
                 response.write("<input required type='radio' id='Option1")

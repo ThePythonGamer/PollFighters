@@ -13,7 +13,7 @@
   <body>
     <%
       If Not Session("Verified") Then
-        Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
+        Session("ErrorMsg") = "You must log in before accessing PollFighters!"
         Server.Transfer("login.asp")
       End If
     %>
