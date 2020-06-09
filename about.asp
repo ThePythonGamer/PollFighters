@@ -1,4 +1,3 @@
-<!--Sets the coding language-->
 <%@ Language=VBScript %>
 <% Option Explicit %>
   
