@@ -98,7 +98,7 @@
               <th><a href="<%=strURL%>?SortOrder=1">Username</a></th>
               <th><a href="<%=strURL%>?SortOrder=2">Voted</a></th>
               <th><a href="<%=strURL%>?SortOrder=3">Points</a></th>
-              <th>Guess %</th>
+              <th class="fake-link">Guess %</th>
               <% 
                 if IsAdmin = True Then
                   response.write "<th class='fake-link'>Reset Points?</th>"

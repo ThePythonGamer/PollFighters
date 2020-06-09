@@ -39,7 +39,11 @@ h1 a:hover {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 27px;
+}
+
+p {
+  font-size: 20px;
 }
 
 p strong {
@@ -114,6 +118,11 @@ tr:nth-child(odd) {
   align-items: center;
 }
 
+.horizontal-center{
+  text-align: center;
+  align-items: center;
+}
+
 .poll-list {
   text-align: center; /*just placeholder styling for the polls*/ 
 }
@@ -149,10 +158,11 @@ tr:nth-child(odd) {
   text-align: center; 
 }
 
-.horizontal-center {
+.center-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 33%;
 }
 /* Id's */
 #credits {

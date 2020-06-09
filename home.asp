@@ -54,26 +54,9 @@
           <h1>Got a <i>burning</i> topic your friend won't stop blabbering about? Grab your keyboard and fight!</h1>
           <img src="images/Trailer.gif" style="width:33%;" class="horizontal-center">
           <hr>
-          <p>Does your friend think pineapple on pizza is less popular than your single life? Go show him who's boss!</p>
-          <br>
-          <img src="images/vs/Pineapple.jpg" class="imagesVS">
-          VS
-          <img src="images/vs/Cheese.jpg" class="imagesVS">
-    
-          <br>
-          <p>Ever wonder which is the more popular beverage between coffee and tea? Find out NOW!</p>
-          <img src="images/vs/Coffee.jpg" class="imagesVS">
-          VS
-          <img src="images/vs/Tea.jpeg" class="imagesVS">
-          <br>
-          <p>Do you have an annoying neighbour that constantly talk about how cats are great but you know that dogs are better?Prove it!</p>  
-          <img src="images/vs/Cat.jpg" class="imagesVS">
-          VS
-          <img src= "images/vs/Dog.jpg" class="imagesVS">
-          <br>
-          <hr>
-          Top Polls
-          <hr>
+          <h2>At PollFighters, we aim to let people discover which choice is the <strong>best</strong> out of them all!!</h2>
+          <p>That's right grandma, we might just care if your cookies have too much sugar in them!</p>
+          <img src="images/vs/grandma.jpg">
           <h1><a href="polls.asp">Go to PollFight now!</a></h1>
         </div>
       </div>
