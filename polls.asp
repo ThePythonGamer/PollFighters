@@ -124,34 +124,34 @@
                 response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation' id='form")
                 response.write(FormCounter)
                 response.write("' novalidate> <div class='form-group'>")
-                response.write("<input type='radio' id='Option1")
+                response.write("<input required type='radio' id='Option1")
                 response.write(FormCounter)
-                response.write("' name='Choice' value='Option1' required>")
+                response.write("' name='Choice' value='Option1'>")
                 response.write("<label for='Option1")
                 response.write(FormCounter)
                 response.write("'>")
                 response.write(objRS("Choice1"))
                 response.write("</label><br>")
-                response.write("<input type='radio' id='Option2")
+                response.write("<input required type='radio' id='Option2")
                 response.write(FormCounter)
-                response.write("' name='Choice' value='Option2' required>")
+                response.write("' name='Choice' value='Option2'>")
                 response.write("<label for='Option2")
                 response.write(FormCounter)
                 response.write("'>")
                 response.write(objRS("Choice2"))
                 response.write("</label></div>")
-                response.write("<div class='form-group'><input type='radio' id='Guess1")
+                response.write("<div class='form-group'><input required type='radio' id='Guess1")
                 response.write(FormCounter)
-                response.write("' name='Guess' value='Guess1' required>")
+                response.write("' name='Guess' value='Guess1'>")
                 response.write("<label for='Guess1")
                 response.write(FormCounter)
                 response.write("'>I think choice 1 is winning.</label><br>")
-                response.write("<input type='radio' id='Guess2")
+                response.write("<input required type='radio' id='Guess2")
                 response.write(FormCounter)
                 response.write("' name='Guess' value='Guess2'>")
                 response.write("<label for='Guess2")
                 response.write(FormCounter)
-                response.write("' required>I think choice 2 is winning.</label></div>")
+                response.write("'>I think choice 2 is winning.</label></div>")
                 if Session("Admin") = True then
                   response.write("<button type='submit' class='btn btn-success' style='float: left;' name='Vote' value='")
                   response.write(objRS("ID"))
@@ -225,28 +225,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script>
-      // var form = document.querySelector('.needs-validation');
-
-      // form.addEventListener('submit', function(event) {
-      //   if (form.checkValidity() === false) {
-      //     event.preventDefault();
-      //     event.stopPropagation();
-      //   }
-      //   form.classList.add('was-validated');
-      // })
-
-    $('form').each(function () {
-    $(this).validate({
-        rules: {
-            Choice: {
-                valid: true
-            },
-            Guess: {
-                valid: true
-            }
-        },
-    });
-});
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+        }, false);
+        });
+        }, false);
+        })();
     </script>
   </body>
 </html>
