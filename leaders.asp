@@ -123,7 +123,9 @@
                 end if
                 if IsAdmin = True Then
                   If objRS("Admin") = -1 or objRS("Username") = "GUEST" then
-                    response.write("<td class='admin-align'>-</td>")
+                    response.write("<td class='admin-align'><form method='post' action='leaders-reset.asp'><button type='submit' class='custom-button' name='Uname' value='")
+                    response.write(objRS("Username"))
+                    response.write("'>Reset</button></form></td>")
                     response.write("<td class='admin-align'>-</td>")
                   else
                   response.write("<td class='admin-align'><form method='post' action='leaders-reset.asp'><button type='submit' class='custom-button' name='Uname' value='")

@@ -53,7 +53,7 @@
         <div class="content">
           <h1>About <strong>PollFighters</strong></h1>
           <br><br>
-          <p>PollFighters is a user-friendly service that aims to help users post their own polls on the internet and interact with other user's polls. This can be used to help people solve controversial issues, or have a little bit of fun. Users can guess which answer in a poll will receive the majority of votes. If the user gets it right, they will earn a point! If you earn enough points, you may just make it on the <a href="leaders.asp" target="main">leaderboard.</a></a></p>
+          <p>PollFighters is a user-friendly service that aims to help users post their own polls on the internet and interact with other user's polls. This can be used to help people solve controversial issues, or have a little bit of fun. Users can guess which answer in a poll will receive the majority of votes. If the user gets it right, they will earn a point! If you earn enough points, you may just make it on the <a href="leaders.asp">leaderboard.</a></a></p>
           <br>
           <p>Our website is subject to change at any given time.</p>
           <br>

@@ -1,6 +1,6 @@
 <%@ Language=VBScript %>
 <% Option Explicit %>
-  
+
 <html>
   <head>
     <title>PollFighters</title>
@@ -12,10 +12,10 @@
   </head>
   <body>
     <%
-      If Not Session("Verified") Then
-        Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
-        Server.Transfer("login.asp")
-      End If
+        If Not Session("Verified") Then
+          Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
+          Server.Transfer("login.asp")
+        End If
     %>
     <div class="header">
       <img id="logobanner" src="images/logodark-trans.png">
@@ -51,13 +51,26 @@
         </nav>
         
         <div class="content">
-          <h1>Got a <i>burning</i> topic your friend won't stop blabbering about? Grab your keyboard and fight!</h1>
-          <img src="images/Trailer.gif" style="width:33%;" class="horizontal-center">
-          <hr>
-          <h2>At PollFighters, we aim to let people discover which choice is the <strong>best</strong> out of them all!!</h2>
-          <p>That's right grandma, we might just care if your cookies have too much sugar in them!</p>
-          <img src="images/vs/grandma.jpg">
-          <h1><a href="polls.asp">Go to PollFight now!</a></h1>
+          <div class="horizontal-center">
+            <img src="images/Trailer.gif" class="center-image">
+            <br><h1>Got a <i>burning</i> topic your friend won't stop blabbering about? Grab your keyboard and fight!</h1>
+          </div>
+        </div>
+        <hr>
+        <div class="content">
+          <div class="horizontal-center">
+            <h2>At PollFighters, we help discover the best answers to your abnormal everyday problems.</h2>
+            <p>That's right grandma, we might just care if your cookies have too much sugar in them! Stop calling us "sweetie" all the time.</p>
+            <img src="images/vs/grandma.jpg" class="center-image">
+            <br><h2>Cats? Dogs? We've heard this too many times!</h2>
+            <p>Seriously Jon, stop letting Larry in my house!</p>
+            <img src="images/vs/Cat vs Dog.jpg" class="center-image">
+            <br><h2>Amanda picked my pizza out of the fridge and thought it was meal time.</h2>
+            <p>She <strong>did not</strong> reheat it. I'm reconsidering this relationship. She tells me to make a poll about it, so I WILL!</p>
+            <img src="images/vs/cold pizza.jpg" class="center-image">
+            <h2><a href="polls.asp">Go PollFight now!</a></h2>
+            <p>We are not responsible for your life decisions made from this platform.</p>
+          </div>
         </div>
       </div>
       <footer id="footer">
