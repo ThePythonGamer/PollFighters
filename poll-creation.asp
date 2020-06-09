@@ -44,6 +44,8 @@
     objRS.MoveNext
   loop
 
+  response.write("pID")
+
   ErrorMsg = "A poll has been created."
   Session("ErrorMsg") = ErrorMsg
 
