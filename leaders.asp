@@ -59,6 +59,9 @@
         </nav>
         
         <div class="content">
+          <div class="horizontal-center">
+            <h2>Player Leaderboard</h2>
+          </div>
           <%
             Dim strURL
             strURL = "leaders.asp"
