@@ -8,6 +8,7 @@
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
+  'Opens connection to data base
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -19,7 +20,7 @@
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open "Users", objConn, , adLockOptimistic
-
+  'Deletes user from database
   do while not objRS.EOF
     if Session("Username") = objRS("Username") then
         objRS.delete
@@ -30,12 +31,12 @@
     end if
     objRS.MoveNext
   loop
-  
+  'Closes connection to data base
   objRS.Close
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
-
+  'Displays message to user about if the account was deleted or not
   Session("ErrorMsg") = ErrorMsg
   Server.Transfer("login.asp")
 %>
