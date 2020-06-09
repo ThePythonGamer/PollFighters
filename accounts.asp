@@ -49,49 +49,51 @@
             </ul> 
           </div>
         </nav>  
-        <%
-          Const adLockOptimistic = 3
-          Dim objConn
-          Dim strConnection
+        
+        <div class="content">
+          <%
+            Const adLockOptimistic = 3
+            Dim objConn
+            Dim strConnection
 
-          Set objConn = Server.CreateObject("ADODB.Connection")
-          strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
+            Set objConn = Server.CreateObject("ADODB.Connection")
+            strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
-          objConn.Open (strConnection)
+            objConn.Open (strConnection)
 
-          Dim strSQL
-          strSQL = "SELECT * FROM Users"
+            Dim strSQL
+            strSQL = "SELECT * FROM Users"
 
-          Dim objRS
-          Set objRS = Server.CreateObject("ADODB.Recordset")
-          objRS.Open strSQL, objConn, , adLockOptimistic
+            Dim objRS
+            Set objRS = Server.CreateObject("ADODB.Recordset")
+            objRS.Open strSQL, objConn, , adLockOptimistic
 
-          response.write("Username: " & Session("Username"))
-          response.write("<br>")
-          response.write("Current Password: " & Session("Password"))
-          response.write("<br><br>")
-          
-          do while not objRS.EOF
-            if Session("Username") = objRS("Username") Then
-              response.write("Your votes: " & objRS("TotalVotes"))
-              response.write("<br>")
-              response.write("Your points: " &  objRS("Points"))
+            response.write("<p id='green'>Username: " & Session("Username"))
+            response.write("<br>Current Password: " & Session("Password"))
+            response.write("<br>")
+            
+            do while not objRS.EOF
+              if Session("Username") = objRS("Username") Then
+                response.write("<p id='blue'>Your votes: " & objRS("TotalVotes"))
+                response.write("<br>Your points: " &  objRS("Points"))
+                response.write("<br>")
+              end if
+              objRS.MoveNext
+            loop
+
+            if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
+              response.write("<p><strong id='red'>Sorry, you cannot change the password of this account as it's a base account. </strong>")
+            else
+              response.write("<p>If you'd like to change your password, click <a href='newpass.html'>here!</a>")
+              response.write("<br>Don't want to have an account with Pollfighters? Click <a href='delete-user.asp'>here</a> to DELETE your account")
             end if
-            objRS.MoveNext
-          loop
 
-          if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
-            response.write("<br><strong>You cannot delete or change the password of this account.</strong>")
-          else
-            response.write("<br> <a href='newpass.html'>Change your password</a>")
-            response.write("<br> <a href='delete-user.asp'>DELETE YOUR ACCOUNT</a>")
-          end if
-
-          objRS.Close
-          set objRs = Nothing
-          objConn.Close
-          set objConn = Nothing
-        %>
+            objRS.Close
+            set objRs = Nothing
+            objConn.Close
+            set objConn = Nothing
+          %>
+        </div>
       </div>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>

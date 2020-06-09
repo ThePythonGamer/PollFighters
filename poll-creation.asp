@@ -65,7 +65,7 @@
   Do while not objRS.EOF
     if Not Session("Admin") then
       if Session("Username") = objRS("Username") then
-        objRS.Fields("IDsVoted") = objRS("IDsVoted") + " " + pID
+        objRS.Fields("IDsVoted") = objRS("IDsVoted") + " " + Cstr(pID)
         objRS.Update
       end if
     end if
