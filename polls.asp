@@ -187,7 +187,7 @@
                     If Counter = 1 Then
                       Counter = Counter + 1
                       response.write("<div class='row'>")
-                        response.write("<div class='col'>")
+                        response.write("<div class='col custom-box'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter > 1 and Counter < 3 then
