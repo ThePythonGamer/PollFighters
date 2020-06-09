@@ -83,9 +83,9 @@
               Case 1
                 strSQL = strSQL & " ORDER BY Username"
               Case 2
-                strSQL = strSQL & " ORDER BY TotalVotes"
+                strSQL = strSQL & " ORDER BY TotalVotes DESC"
               Case 3
-                strSQL = strSQL & " ORDER BY Points"
+                strSQL = strSQL & " ORDER BY Points DESC"
             End Select
 
             Dim objRS
