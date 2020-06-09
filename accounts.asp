@@ -64,7 +64,7 @@
             Const adLockOptimistic = 3
             Dim objConn
             Dim strConnection
-            'Opens connection to data base
+            'Opens connection to database
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
