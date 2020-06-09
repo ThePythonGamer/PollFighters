@@ -51,13 +51,15 @@
         </nav>
         
         <div class="content">
-          <h1>About <strong>PollFighters</strong></h1>
-          <br><br>
-          <p>PollFighters is a user-friendly service that aims to help users post their own polls on the internet and interact with other user's polls. This can be used to help people solve controversial issues, or have a little bit of fun. Users can guess which answer in a poll will receive the majority of votes. If the user gets it right, they will earn a point! If you earn enough points, you may just make it on the <a href="leaders.asp">leaderboard.</a></a></p>
-          <br>
-          <p>Our website is subject to change at any given time.</p>
-          <br>
-          <h2><strong>Our Developers:</strong></h2>
+          <div class="horizontal-center">
+            <br><h2>About <strong>PollFighters</strong></h2>
+            <p>PollFighters is a user-friendly service that strives to help users post polls on the internet and interact with user's polls. This can help people solve controversial issues, or have a little bit of fun. Users guess which answers in a poll will receive the majority of votes. If the user gets it right, they will earn a point! Users with the most points will appear on the top of the <a href="leaders.asp">leaderboard.</a> This website was written in HTML, CSS, Javascript and Classic ASP. All of our accounts are managed in a microsoft access database, including our polls.</p><br>
+            <h2>Why?</h2>
+            <p>Human beings have opinions. (If not, you are an alien hiding on earth.) We might not agree with the same opinions from those around the world. People argue with their peers about the best time to shower. People argue about which latest console stole what idea from the other company. So, what did we do? We created PollFighters, so you can sort your arguments with the majority!</p>
+            <br>
+            <br>
+            <h2><strong>Our Developers:</strong></h2>
+          </div>
           <!-- Testing the Bootstrap grid system -->
           <div class="container">
             <div class="row">
@@ -74,18 +76,21 @@
             <div class="row">
               <div class="col devs" id="red">
                 <img src="images/devs/Hayden.jpg">
-                <p>Hayden Rooney, programming-enthusiast and web-developing amateur.
+                <p>Hayden Rooney, programming-enthusiast and web-developing amateur, collaborated to build his second website.</p>
               </div>
               <div class="col devs" id="green">
                 <img src="images/devs/Liam Breton-Full.jpg">
-                <p>Liam Breton is a high-school student enrolled in <strong>Website Design.</strong> This has been his first full collaborative-built website.</p>
+                <p>Liam Breton is a high-school student who enrolled in <strong>Website Design.</strong> PollFighters is his first full collaboratively built website.</p>
               </div>
               <div class="col devs" id="blue">
                 <img src="images/devs/LeiShiJiang.jpg">
                 <p>Lei Shi Jiang loves <strong>anime,</strong> and anime.</p>
               </div>
             </div>
-          </div>  
+          </div>
+          <div class="horizontal-center">
+            <br><p>Our website is subject to change at any given time.</p> 
+          </div>
         </div>
       </div>
       <footer id="footer">
