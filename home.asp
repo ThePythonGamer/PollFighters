@@ -54,7 +54,7 @@
           <h1>Got a <i>burning</i> topic your friend won't stop blabbering about? Grab your keyboard and fight!</h1>
           <br>
           Trailer:
-          <video width="320" height="300"><source src=""></video>
+          <img src="images/Trailer.gif" id="Trailer">
           <hr>
           <p>Does your friend think pineapple on pizza is less popular than your single life? Go show him who's boss!</p>
           <br>
