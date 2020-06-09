@@ -39,7 +39,7 @@
                 <a href="polls.asp" class="nav-link">Polls</a>
               </li>
               <li class="nav-item">
-                <a href="leaders.asp" class="nav-link">Leaderboard</a>
+                <a href="leaders.asp?SortOrder=3" class="nav-link">Leaderboard</a>
               </li>
               <li class="nav-item">
                 <a href="about.asp" class="nav-link">About</a>
@@ -57,6 +57,8 @@
         </nav>  
         
         <div class="content">
+          <div class="horizontal-center">
+            <h2>Account info</h2>
           <%
             'Declaration of variables
             Const adLockOptimistic = 3
@@ -75,15 +77,16 @@
             Set objRS = Server.CreateObject("ADODB.Recordset")
             objRS.Open strSQL, objConn, , adLockOptimistic
             'Displays the username and password
-            response.write("<p id='green'>Username: " & Session("Username"))
-            response.write("<br>Current Password: " & Session("Password"))
-            response.write("<br>")
+            response.write("<p id='green'>Username: <strong>" & Session("Username"))
+            response.write("</strong><br>Current Password: <strong>" & Session("Password"))
+            response.write("</strong><br>")
             'Displays users votes and point
+            response.write("<h2>Current Account Statistics</h2>")
             do while not objRS.EOF
               if Session("Username") = objRS("Username") Then
-                response.write("<p id='blue'>Your votes: " & objRS("TotalVotes"))
-                response.write("<br>Your points: " &  objRS("Points"))
-                response.write("<br>")
+                response.write("<p id='blue'>Your votes: <strong>" & objRS("TotalVotes"))
+                response.write("</strong><br>Your points: <strong>" &  objRS("Points"))
+                response.write("</strong><br>")
               end if
               objRS.MoveNext
             loop
@@ -92,7 +95,7 @@
               response.write("<p><strong id='red'>Sorry, you cannot change the password of this account as it's a base account. </strong>")
             else
               response.write("<p>If you'd like to change your password, click <a href='newpass.html'>here!</a>")
-              response.write("<br>Don't want to have an account with Pollfighters? Click <a href='delete-user.asp'>here</a> to DELETE your account")
+              response.write("<br>Don't want to have an account with Pollfighters? <strong id='red'>To DELETE your account,</strong> click <a href='delete-user.asp'>here.</a></p>")
             end if
             'Closes connection to data base
             objRS.Close
