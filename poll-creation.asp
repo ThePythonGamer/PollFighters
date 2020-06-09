@@ -2,9 +2,11 @@
 <% Option Explicit %>
 
 <%
+  'Declaration of variables
   Const adLockOptimistic = 3
   Dim objConn
   Dim strConnection
+  'Opens connection to database
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Polls.mdb")
 
@@ -13,7 +15,7 @@
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open "Polls", objConn, , adLockOptimistic
-
+  'Declaration of variables
   Dim ErrorMsg
   Dim Title
   Dim Option1
@@ -25,7 +27,7 @@
   Option1 = Request.Form("Option1")
   Option2 = Request.Form("Option2")
   Vote = Request.Form("Vote")
-
+  'Records new poll in database
   objRS.AddNew
   objRS("PTitle") = Title
   objRS("Choice1") = Option1
@@ -48,12 +50,12 @@
 
   ErrorMsg = "Your poll has been created! Only other users will be able to see and interact with it."
   Session("ErrorMsg") = ErrorMsg
-
+  'Closes connection to database
   objRS.Close 
   Set objRS = Nothing
   objConn.Close
   Set objConn = Nothing
-
+  'Opens connection to database
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -71,7 +73,7 @@
     end if
     objRS.MoveNext
   loop
-
+  'Closes connection to database
   objRS.Close 
   Set objRS = Nothing
   objConn.Close

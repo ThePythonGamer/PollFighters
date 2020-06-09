@@ -7,7 +7,7 @@
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
-  'Opens connection to data base
+  'Opens connection to database
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -41,7 +41,7 @@
   else
     ErrorMsg = "There was an error resetting " & Username & "'s account!"
   End if
-  'Closes connection to data base
+  'Closes connection to database
   objRS.Close
   set objRs = Nothing
   objConn.Close

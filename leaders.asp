@@ -79,7 +79,7 @@
 
             Dim objConn
             Dim strConnection
-            'Opens connection to data base
+            'Opens connection to database
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -167,7 +167,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
   <%
-    'Closes connection to data base
+    'Closes connection to database
     objRS.Close
     Set objRS = Nothing
 
