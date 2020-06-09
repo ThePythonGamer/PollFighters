@@ -45,9 +45,8 @@
         </nav>
         
         <div class="content">
+          <div class="horizontal-center">
           <h1>Results:</h1>
-          <br>
-          <hr>
           <div class="poll-result">
           <%
             Const adLockOptimistic = 3
@@ -106,18 +105,18 @@
                 end if
               Choice1Percent = (Choice1Votes / (Choice1Votes + Choice2Votes)) * 100
               Choice2Percent = (Choice2Votes / (Choice1Votes + Choice2Votes)) * 100
-              response.write("<h2>Current votes:</h2><br><h3>")
+              response.write("<h2>Current votes:</h2><br><h3 id='blue'>")
               response.write(objRS("Choice1"))
               response.write(": ")
               response.write(objRS("Choice1Votes"))
-              response.write("--")
+              response.write(" </h3><h3>")
               response.write(Round(Choice1Percent, 2))
               response.write("%")
-              response.write("<br>")
+              response.write("</h3><br><h3 id='red'>")
               response.write(objRS("Choice2"))
               response.write(": ")
               response.write(objRS("Choice2Votes"))
-              response.write("--")
+              response.write(" </h3><h3>")
               response.write(Round(Choice2Percent, 2))
               response.write("%")
               response.write("</h3><br><br>")
@@ -176,6 +175,7 @@
             Set objConn = Nothing
           %>
           </div>
+        </div>
       </div>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
