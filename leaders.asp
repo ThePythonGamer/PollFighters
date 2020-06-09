@@ -11,15 +11,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div class="header">
-      <img id="logobanner" src="images/logodark-trans.png">
-    </div>
     <%
       If Not Session("Verified") Then
         Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
         Server.Transfer("login.asp")
       End If
     %>
+    <div class="header">
+      <img id="logobanner" src="images/logodark-trans.png">
+    </div>
     <div id="page-container">
       <%
         if len(Session("ErrorMsg")) > 0 then
@@ -59,6 +59,9 @@
         </nav>
         
         <div class="content">
+          <div class="horizontal-center">
+            <h2>Player Leaderboard</h2>
+          </div>
           <%
             Dim strURL
             strURL = "leaders.asp"

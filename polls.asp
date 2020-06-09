@@ -121,7 +121,9 @@
                 response.write("<li>")
                 response.write(objRs("PTitle"))
                 response.write("<br>")
-                response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation' novalidate> <div class='form-group'>")
+                response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation' id='form")
+                response.write(FormCounter)
+                response.write("' novalidate> <div class='form-group'>")
                 response.write("<input type='radio' id='Option1")
                 response.write(FormCounter)
                 response.write("' name='Choice' value='Option1' required>")
@@ -155,7 +157,9 @@
                   response.write(objRS("ID"))
                   response.write("'>Vote</button>")
                   response.write("</form>")
-                  response.write("<form method='post' action='poll-delete.asp' class='needs-validation' novalidate>")
+                  response.write("<form method='post' action='poll-delete.asp' class='needs-validation' id='Btn")
+                  response.write(FormCounter)
+                  response.write("' novalidate>")
                   response.write("<button type='submit' class='btn btn-danger' style='float: right;' name='PollID' value='")
                   response.write(objRS("ID"))
                   response.write("'>DELETE POLL</button>")
@@ -221,15 +225,28 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script>
-      var form = document.querySelector('.needs-validation');
+      // var form = document.querySelector('.needs-validation');
 
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      })
+      // form.addEventListener('submit', function(event) {
+      //   if (form.checkValidity() === false) {
+      //     event.preventDefault();
+      //     event.stopPropagation();
+      //   }
+      //   form.classList.add('was-validated');
+      // })
+
+    $('form').each(function () {
+    $(this).validate({
+        rules: {
+            Choice: {
+                valid: true
+            },
+            Guess: {
+                valid: true
+            }
+        },
+    });
+});
     </script>
   </body>
 </html>
