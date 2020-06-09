@@ -2,10 +2,12 @@
 <% Option Explicit %>
 
 <%
+  'Declaration of variables
   Const adLockOptimistic = 3
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
+  'Opens connection to database
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Polls.mdb")
 
@@ -23,7 +25,7 @@
 
   Success = False
   pID = Request.Form("PollID")
-
+  'Checks to see if ID is valid and deletes the poll if the ID is valid
   do while not objRS.EOF
     if Cint(pID) = objRS("ID") then
       objRS.delete
@@ -36,12 +38,12 @@
     objRS.MoveNext
   loop
 
-  
+  'Closes connection to database
   objRS.Close
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
-
+  'Displays message to user about if the poll was deleted or not
   Session("ErrorMsg") = ErrorMsg
   Server.Transfer("polls.asp")
 %>

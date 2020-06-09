@@ -63,7 +63,7 @@
 
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open "Users", objConn, , adLockOptimistic
-
+  'Checks and loads polls the users has not voted for
   Do while not objRS.EOF
     if Not Session("Admin") then
       if Session("Username") = objRS("Username") then
