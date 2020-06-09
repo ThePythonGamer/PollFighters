@@ -59,11 +59,11 @@
         
         <div class="content">
           <%
-            'Opens connection to data base
+            'Declaration of variables
             Const adLockOptimistic = 3
             Dim objConn
             Dim strConnection
-
+            'Opens connection to data base
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 

@@ -1,7 +1,9 @@
+<!--Sets the coding language-->
 <%@ Language=VBScript %>
 <% Option Explicit %>
 
 <%
+  'Declaration of variables
   Const adLockOptimistic = 3
   Dim ErrorMsg
   Dim objConn
