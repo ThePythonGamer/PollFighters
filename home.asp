@@ -52,9 +52,7 @@
         
         <div class="content">
           <h1>Got a <i>burning</i> topic your friend won't stop blabbering about? Grab your keyboard and fight!</h1>
-          <br>
-          Trailer:
-          <img src="images/Trailer.gif" id="Trailer">
+          <img src="images/Trailer.gif" style="width:33%;" class="horizontal-center">
           <hr>
           <p>Does your friend think pineapple on pizza is less popular than your single life? Go show him who's boss!</p>
           <br>
