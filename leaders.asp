@@ -133,6 +133,7 @@
                 else
                   response.write "<td class='num-align'>N/A</td>"
                 end if
+                'Allows admin to delete or reset user accounts on leaderboard
                 if IsAdmin = True Then
                   If objRS("Admin") = -1 or objRS("Username") = "GUEST" then
                     response.write("<td class='admin-align'><form method='post' action='leaders-reset.asp'><button type='submit' class='custom-button' name='Uname' value='")
