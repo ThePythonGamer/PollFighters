@@ -21,14 +21,6 @@
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
     <div id="page-container">
-      <%
-        if len(Session("ErrorMsg")) > 0 then
-          Response.write "<p class='alert alert-info'>"
-          Response.write Session("ErrorMsg")
-          Response.write "</p>"
-          Session("ErrorMsg") = ""
-        end if
-      %>
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
           <a class="navbar-brand" href="home.asp">PollFighters</a>
@@ -57,7 +49,14 @@
             </ul> 
           </div>
         </nav>
-        
+        <%
+          if len(Session("ErrorMsg")) > 0 then
+            Response.write "<p class='alert alert-info'>"
+            Response.write Session("ErrorMsg")
+            Response.write "</p>"
+            Session("ErrorMsg") = ""
+          end if
+        %>
         <div class="content">
           <h1>Polls:
           <form action="poll-create.asp" style="float: right;">
@@ -115,33 +114,40 @@
               Dim Choice2Votes
               Dim Counter
               Counter = 1
+              Dim FormCounter
+              FormCounter = 1
 
               Sub PollOutput()
                 response.write("<li>")
                 response.write(objRs("PTitle"))
                 response.write("<br>")
-                response.write("<form method='post' action='poll-vote-check.asp' novalidate> <div class='form-group'>")
-                response.write("<input type='radio' id='Option1' name='Choice' value='Option1'>")
-                response.write("<label for='Option1'>")
+                response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation' novalidate> <div class='form-group'>")
+                response.write("<input type='radio' id='Option1' name='Choice' value='Option1' required>")
+                response.write("<label for='"FormCounter"Option1'>")
                 response.write(objRS("Choice1"))
-                response.write("</label>")
-                response.write("<input type='radio' id='Option2' name='Choice' value='Option2'>")
-                response.write("<label for='Option2'>")
+                response.write("</label><br>")
+                response.write("<input type='radio' id='"FormCounter"Option2' name='Choice' value='Option2' required>")
+                response.write("<label for='"FormCounter"Option2'>")
                 response.write(objRS("Choice2"))
                 response.write("</label></div>")
-                response.write("<div class='form-group'><input type='radio' id='Guess1' name='Guess' value='Guess1'>")
-                response.write("<label for='Guess1'>I think choice 1 is winning.</label>")
-                response.write("<input type='radio' id='Guess2' name='Guess' value='Guess2'>")
-                response.write("<label for='Guess2'>I think choice 2 is winning.</label></div>")
-                response.write("<button type='submit' class='btn btn-success' style='float: left;' name='Vote' value='")
-                response.write(objRS("ID"))
-                response.write("'>Vote</button>")
-                response.write("</form>")
+                response.write("<div class='form-group'><input type='radio' id='"FormCounter"Guess1' name='Guess' value='Guess1' required>")
+                response.write("<label for='"FormCounter"Guess1'>I think choice 1 is winning.</label><br>")
+                response.write("<input type='radio' id='"FormCounter"Guess2' name='Guess' value='Guess2'>")
+                response.write("<label for='"FormCounter"Guess2' required>I think choice 2 is winning.</label></div>")
                 if Session("Admin") = True then
-                  response.write("<form method='post' action='poll-delete.asp' novalidate>")
+                  response.write("<button type='submit' class='btn btn-success' style='float: left;' name='Vote' value='")
+                  response.write(objRS("ID"))
+                  response.write("'>Vote</button>")
+                  response.write("</form>")
+                  response.write("<form method='post' action='poll-delete.asp' class='needs-validation' novalidate>")
                   response.write("<button type='submit' class='btn btn-danger' style='float: right;' name='PollID' value='")
                   response.write(objRS("ID"))
                   response.write("'>DELETE POLL</button>")
+                  response.write("</form>")
+                else
+                  response.write("<button type='submit' class='btn btn-success' name='Vote' value='")
+                  response.write(objRS("ID"))
+                  response.write("'>Vote</button>")
                   response.write("</form>")
                 end if
               End Sub  
@@ -160,17 +166,17 @@
                     If Counter = 1 Then
                       Counter = Counter + 1
                       response.write("<div class='row'>")
-                        response.write("<div class='col-4'>")
+                        response.write("<div class='col'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter > 1 and Counter < 3 then
                       Counter = Counter + 1
-                        response.write("<div class='col-4'>")
+                        response.write("<div class='col'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter = 3 then
                       Counter = 1
-                        response.write("<div class='col-4'>")
+                        response.write("<div class='col'>")
                           call PollOutput
                         response.write("</div>")
                       response.write("</div>")
@@ -197,5 +203,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+      var form = document.querySelector('.needs-validation');
+
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      })
+    </script>
   </body>
 </html>

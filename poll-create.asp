@@ -53,7 +53,7 @@
         <form method="post" action="poll-creation.asp" class="credentials needs-validation" novalidate>
           <div class="form-group">
             <label for="Title"><b>Title</b></label>
-            <input type="text" name="Title" placeholder="Enter the title of your poll" class="form-control" required>
+            <input type="text" name="Title" placeholder="Enter the title of your poll" class="form-control" maxlength ="64" required>
           </div>
           <div class="form-group">
             <label for="Option1"><b>Option 1</b></label>
