@@ -101,8 +101,8 @@
               <th>Guess %</th>
               <% 
                 if IsAdmin = True Then
-                  response.write "<th>Reset Points?</th>"
-                  response.write "<th>Delete User</th>"
+                  response.write "<th class='fake-link'>Reset Points?</th>"
+                  response.write "<th class='fake-link'>Delete User</th>"
                 end if
               %>
             </tr>
@@ -113,23 +113,23 @@
               Do while not objRS.EOF
                 response.write "<tr>"
                 response.write "<td>" & objRS("Username") & "</td>"
-                response.write "<td>" & objRS("TotalVotes") & "</td>"
-                response.write "<td>" & objRS("Points") & "</td>"
+                response.write "<td class='num-align'>" & objRS("TotalVotes") & "</td>"
+                response.write "<td class='num-align'>" & objRS("Points") & "</td>"
                 if objRS("TotalVotes") > 0 and objRS("Points") > 0 then
                   GuessPercent = (objRS("Points") / objRS("TotalVotes")) * 100
-                  response.write "<td>" & Round(GuessPercent, 1) & "</td>"
+                  response.write "<td class='num-align'>" & Round(GuessPercent, 1) & "</td>"
                 else
-                  response.write "<td>N/A</td>"
+                  response.write "<td class='num-align'>N/A</td>"
                 end if
                 if IsAdmin = True Then
                   If objRS("Admin") = -1 or objRS("Username") = "GUEST" then
-                    response.write("<td>-</td>")
-                    response.write("<td>-</td>")
+                    response.write("<td class='admin-align'>-</td>")
+                    response.write("<td class='admin-align'>-</td>")
                   else
-                  response.write("<td><form method='post' action='leaders-reset.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
+                  response.write("<td class='admin-align'><form method='post' action='leaders-reset.asp'><button type='submit' class='custom-button' name='Uname' value='")
                   response.write(objRS("Username"))
                   response.write("'>Reset</button></form></td>")
-                  response.write("<td><form method='post' action='leaders-delete.asp'><button type='submit' class='btn btn-link' name='Uname' value='")
+                  response.write("<td class='admin-align'><form method='post' action='leaders-delete.asp'><button type='submit' class='custom-button' name='Uname' value='")
                   response.write(objRS("Username"))
                   response.write("'>Delete</button></form></td>")
                   end if

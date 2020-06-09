@@ -1,7 +1,9 @@
 :root {
   --main-color: #121212;
-  --bg-accent: #343a40;
-  --accent1-color: #47d147;
+  --bg-accent: #343A40;
+  --bg-accent2: #515151;
+  --bg-accent3: #7E7E7E;
+  --accent1-color: #47D147;
   --accent2-color: #1A7DE0;
   --accent3-color: #F91F1F;
 }
@@ -22,7 +24,6 @@ a {
 
 img {
   width: 75%;
-  /*please dont add height unless we change the header to use a class since it screws the header badly*/
 }
 
 button:hover {
@@ -43,6 +44,34 @@ h2 {
 
 p strong {
   color: white;
+}
+
+table {
+  width: 75%;
+  margin: auto;
+  color: white;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--bg-accent);
+  border: var(--main-color) solid 1px;
+  padding: 12px 0px;
+  font-size: 20px;
+  text-align: center;
+}
+
+td {
+  border: var(--main-color) solid 1px;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-accent3);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--bg-accent2);
 }
 
 /* Classes */
@@ -90,9 +119,35 @@ p strong {
 }
 
 .leaderboard {
-  border: black solid 1px;
+  border: white solid 2px;
 }
 
+.custom-button {
+  border: none;
+  padding: 0;
+  background-color: var(--main-color);
+  color: white;
+  text-decoration: underline;
+  height: 0px;
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+}
+
+.custom-button:focus {
+  outline: 0 !important;
+}
+
+.fake-link {
+  color: var(--accent1-color)
+}
+
+.num-align{
+  text-align: right;
+}
+
+.admin-align {
+  text-align: center; 
+}
 /* Id's */
 #credits {
   list-style-type: none;
@@ -130,4 +185,8 @@ p strong {
 
 #centered-button {
   width: 100%;
+}
+
+#Trailer {
+  width: 33%;
 }
