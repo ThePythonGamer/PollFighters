@@ -61,6 +61,7 @@
         <div class="content">
           <div class="horizontal-center">
             <h2>Player Leaderboard</h2>
+            <p>These are the players on the leaderboard with the most points! Go see how you compare to others!</p>
           </div>
           <%
             Dim strURL
