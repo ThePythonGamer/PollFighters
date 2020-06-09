@@ -26,6 +26,7 @@
     <div id="page-container">
       <div id="content-wrap" class="verticle-center">
         <form method="post" action="VerifyUser.asp" class="credentials needs-validation" novalidate>
+          <h1>Login to PollFighters</h1>
           <!--Allows user to input username-->
           <div class="form-group">
             <label for="uname"><b>Username</b></label>

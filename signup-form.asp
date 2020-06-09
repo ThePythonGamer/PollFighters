@@ -22,6 +22,7 @@
       %>
       <div id="content-wrap" class="verticle-center">
             <form method="post" action="signup.asp" class="credentials needs-validation" novalidate>
+              <h1>Sign Up to PollFighters</h1>
               <div class="form-group">
                 <label for="uname"><b>Username</b></label>
                 <input type="text" name="newuname" placeholder="Create a Username" class="form-control" required>
