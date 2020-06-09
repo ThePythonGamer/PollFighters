@@ -46,7 +46,7 @@
 
   response.write("pID")
 
-  ErrorMsg = "A poll has been created."
+  ErrorMsg = "Your poll has been created! Only other users will be able to see and interact with it."
   Session("ErrorMsg") = ErrorMsg
 
   objRS.Close 
