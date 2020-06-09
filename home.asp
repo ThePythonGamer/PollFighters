@@ -33,7 +33,7 @@
                 <a href="polls.asp" class="nav-link">Polls</a>
               </li>
               <li class="nav-item">
-                <a href="leaders.asp" class="nav-link">Leaderboard</a>
+                <a href="leaders.asp?SortOrder=3" class="nav-link">Leaderboard</a>
               </li>
               <li class="nav-item">
                 <a href="about.asp" class="nav-link">About</a>
