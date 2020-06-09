@@ -11,13 +11,19 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+    <%
+      If Not Session("Verified") Then
+        Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
+        Server.Transfer("login.asp")
+      End If
+    %>
+    <div class="header">
+      <img id="logobanner" src="images/logodark-trans.png">
+    </div>
     <div id="page-container">
       <div id="content-wrap">
-        <div class=header>
-          <img id="logobanner" src="images/logodark-trans.png">
-        </div>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-          <a class="navbar-brand" href="home.html">PollFighters</a>
+          <a class="navbar-brand" href="home.asp">PollFighters</a>
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +36,7 @@
                 <a href="leaders.asp" class="nav-link">Leaderboard</a>
               </li>
               <li class="nav-item">
-                <a href="about.html" class="nav-link">About</a>
+                <a href="about.asp" class="nav-link">About</a>
               </li>
               <li class="nav-item">
                 <a href="accounts.asp" class="nav-link">Account Details</a>
@@ -42,39 +48,53 @@
               </li>
             </ul> 
           </div>
-        </nav>
+        </nav>  
+        
+        <div class="content">
+          <%
+            Const adLockOptimistic = 3
+            Dim objConn
+            Dim strConnection
+
+            Set objConn = Server.CreateObject("ADODB.Connection")
+            strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
+
+            objConn.Open (strConnection)
+
+            Dim strSQL
+            strSQL = "SELECT * FROM Users"
+
+            Dim objRS
+            Set objRS = Server.CreateObject("ADODB.Recordset")
+            objRS.Open strSQL, objConn, , adLockOptimistic
+
+            response.write("<p id='green'>Username: " & Session("Username"))
+            response.write("<br>Current Password: " & Session("Password"))
+            response.write("<br>")
+            
+            do while not objRS.EOF
+              if Session("Username") = objRS("Username") Then
+                response.write("<p id='blue'>Your votes: " & objRS("TotalVotes"))
+                response.write("<br>Your points: " &  objRS("Points"))
+                response.write("<br>")
+              end if
+              objRS.MoveNext
+            loop
+
+            if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
+              response.write("<p><strong id='red'>Sorry, you cannot change the password of this account as it's a base account. </strong>")
+            else
+              response.write("<p>If you'd like to change your password, click <a href='newpass.html'>here!</a>")
+              response.write("<br>Don't want to have an account with Pollfighters? Click <a href='delete-user.asp'>here</a> to DELETE your account")
+            end if
+
+            objRS.Close
+            set objRs = Nothing
+            objConn.Close
+            set objConn = Nothing
+          %>
+        </div>
       </div>
-        <%
-          Const adLockOptimistic = 3
-          Dim objConn
-          Dim strConnection
-
-          Set objConn = Server.CreateObject("ADODB.Connection")
-          strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
-
-          objConn.Open (strConnection)
-
-          Dim strSQL
-          strSQL = "SELECT * FROM Users"
-
-          Dim objRS
-          Set objRS = Server.CreateObject("ADODB.Recordset")
-          objRS.Open strSQL, objConn, , adLockOptimistic
-
-          response.write("Username: " & Session("Username"))
-
-          if UCase(Session("Username")) = "GUEST" or UCase(Session("Username")) = "ADMIN" Then
-            response.write("<br><strong>You cannot delete or change the password of this account.</strong>")
-          else
-            response.write("<br> <a href='newpass.html'>Change your password</a>")
-            response.write("<br> <a href='delete-user.asp'>DELETE YOUR ACCOUNT</a>")
-          end if
-
-          objRS.Close
-          set objRs = Nothing
-          objConn.Close
-          set objConn = Nothing
-        %>
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
       </footer>

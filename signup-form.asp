@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ Language=VBScript %>
+<% Option Explicit %>
 
 <html>
   <head>

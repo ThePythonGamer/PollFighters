@@ -32,8 +32,9 @@
     objRS.MoveNext
   loop
 
-  if Taken = true then
-    ErrorMsg = "This username is taken, Please choose a different Username!" 
+  if Taken = True then
+    ErrorMsg = "This username is taken, Please choose a different Username!"
+    Session("ErrorMsg") = ErrorMsg 
     Server.Transfer("signup-form.asp")
   elseif Taken = false then 
     objRS.AddNew

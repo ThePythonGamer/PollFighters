@@ -1,7 +1,9 @@
 :root {
   --main-color: #121212;
-  --bg-accent: #343a40;
-  --accent1-color: #47d147;
+  --bg-accent: #343A40;
+  --bg-accent2: #515151;
+  --bg-accent3: #7E7E7E;
+  --accent1-color: #47D147;
   --accent2-color: #1A7DE0;
   --accent3-color: #F91F1F;
 }
@@ -22,7 +24,6 @@ a {
 
 img {
   width: 75%;
-  height: 95%;
 }
 
 button:hover {
@@ -38,11 +39,43 @@ h1 a:hover {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 27px;
+}
+
+p {
+  font-size: 20px;
 }
 
 p strong {
   color: white;
+}
+
+table {
+  width: 75%;
+  margin: auto;
+  color: white;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--bg-accent);
+  border: var(--main-color) solid 1px;
+  padding: 12px 0px;
+  font-size: 20px;
+  text-align: center;
+}
+
+td {
+  border: var(--main-color) solid 1px;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-accent3);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--bg-accent2);
 }
 
 /* Classes */
@@ -85,6 +118,52 @@ p strong {
   align-items: center;
 }
 
+.horizontal-center{
+  text-align: center;
+  align-items: center;
+}
+
+.poll-list {
+  text-align: center; /*just placeholder styling for the polls*/ 
+}
+
+.leaderboard {
+  border: white solid 2px;
+}
+
+.custom-button {
+  border: none;
+  padding: 0;
+  background-color: var(--main-color);
+  color: white;
+  text-decoration: underline;
+  height: 0px;
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+}
+
+.custom-button:focus {
+  outline: 0 !important;
+}
+
+.fake-link {
+  color: var(--accent1-color)
+}
+
+.num-align{
+  text-align: right;
+}
+
+.admin-align {
+  text-align: center; 
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33%;
+}
 /* Id's */
 #credits {
   list-style-type: none;
@@ -118,4 +197,8 @@ p strong {
   width: 100%;
   height: 2.54rem;
   border-top: 1px solid white;
+}
+
+#centered-button {
+  width: 100%;
 }

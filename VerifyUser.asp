@@ -11,6 +11,7 @@
 
   Dim Username, Password
   Dim ErrorMsg, Verified, Attempts
+  Dim Admin
 
   Username = Request.Form("uname")
   Password = Request.Form("psword")
@@ -26,6 +27,7 @@
     if Username = objRS("Username") then
       if Password = objRS("Password") then 
         Verified = True
+        Admin = objRS("Admin")
       else
         ErrorMsg = "Please enter correct login credentials!"
       end if
@@ -34,19 +36,17 @@
     end if
     objRS.MoveNext
   loop
-  ' Figure out how to count attempts and lock accounts
-  objRS.Close 
-  Set objRS = Nothing
-  objConn.Close
-  Set objConn = Nothing 
 
   if Verified = True Then
     Session("Verified") = True
     Session("Username") = Username
     Session("Password") = Password
+    If Admin = -1 then
+      Session("Admin") = True
+    end if
     Session("ErrorMsg") = ""
     Session("PwdAttempts") = 0
-    Server.Transfer("home.html")
+    Server.Transfer("home.asp")
   else
     Session("Verified") = False
     Session("Username") = ""
@@ -54,4 +54,9 @@
     Session("PwdAttempts") = Attempts
     Server.Transfer("login.asp")
   end if 
+
+  objRS.Close 
+  Set objRS = Nothing
+  objConn.Close
+  Set objConn = Nothing 
 %>
