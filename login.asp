@@ -16,6 +16,7 @@
   <body>
     
     <div id="page-container">
+      <!--Checks for error messeges-->
       <%
         if len(Session("ErrorMsg")) > 0 then
           Response.write "<p class='alert alert-info'>"
