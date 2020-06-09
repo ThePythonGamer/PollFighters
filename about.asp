@@ -1,9 +1,12 @@
+<!--Sets the coding language-->
 <%@ Language=VBScript %>
 <% Option Explicit %>
   
 <html>
   <head>
+    <!--Title of website-->
     <title>PollFighters</title>
+    <!--Displays favicon image-->
     <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
     <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
@@ -11,15 +14,18 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+  <!--Detect if user has login-->
     <%
       If Not Session("Verified") Then
         Session("ErrorMsg") = "You must log in before accessing PollFigthers!"
         Server.Transfer("login.asp")
       End If
     %>
+    <!--Displays the logo-->
     <div class="header">
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
+    <!--Displays the navigation bar where the user can go to different pages of the website-->
     <div id="page-container">
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -51,6 +57,7 @@
         </nav>
         
         <div class="content">
+        <!--Describes the purpose of the website-->
           <div class="horizontal-center">
             <br><h2>About <strong>PollFighters</strong></h2>
             <p>PollFighters is a user-friendly service that strives to help users post polls on the internet and interact with user's polls. This can help people solve controversial issues, or have a little bit of fun. Users guess which answers in a poll will receive the majority of votes. If the user gets it right, they will earn a point! Users with the most points will appear on the top of the <a href="leaders.asp">leaderboard.</a> This website was written in HTML, CSS, Javascript and Classic ASP. All of our accounts are managed in a microsoft access database, including our polls.</p><br>
@@ -60,7 +67,7 @@
             <br>
             <h2><strong>Our Developers:</strong></h2>
           </div>
-          <!-- Testing the Bootstrap grid system -->
+          <!--Displays Names of Developers -->
           <div class="container">
             <div class="row">
               <div class="col devs" id="red">
@@ -73,6 +80,7 @@
                 <h4>Lei Shi Jiang</h4>
               </div>
             </div>
+            <!--Displays Images and description of developers-->
             <div class="row">
               <div class="col devs" id="red">
                 <img src="images/devs/Hayden.jpg">
@@ -93,10 +101,12 @@
           </div>
         </div>
       </div>
+      <!--Displays copyright-->
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
       </footer>
     </div>  
+    <!--Retives bootstrap plugin-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
