@@ -92,7 +92,7 @@
               </div>
               <div class="col devs" id="blue">
                 <img src="images/devs/LeiShiJiang.jpg">
-                <p>Lei Shi Jiang loves <strong>anime,</strong> and anime.</p>
+                <p>Lei Shi Jiang a funny and <strong>daring</strong> person with skills in art and technology.</p>
               </div>
             </div>
           </div>
