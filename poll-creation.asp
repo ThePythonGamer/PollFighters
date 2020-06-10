@@ -78,6 +78,6 @@
   Set objRS = Nothing
   objConn.Close
   Set objConn = Nothing
-
+  'Changes page to poll-redirect.html
   Server.Transfer("poll-redirect.html")
 %>
