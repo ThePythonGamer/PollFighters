@@ -3,23 +3,29 @@
 
 <html>
   <head>
+    <!--Title of website-->
     <title>PollFighters</title>
+    <!--Displays favicon image-->
     <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
     <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
+    <!--Links to stylesheets-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+    <!--Checks for error messeges-->
     <%
       If Not Session("Verified") Then
         Session("ErrorMsg") = "You must log in before accessing PollFighters!"
         Server.Transfer("login.asp")
       End If
     %>
+    <!--Displays the logo-->
     <div class="header">
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
+    <!--Displays the navigation bar where the user can go to different pages of the website-->
     <div id="page-container">
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -49,6 +55,7 @@
             </ul> 
           </div>
         </nav>
+        <!--Detect if user has login-->
         <%
           if len(Session("ErrorMsg")) > 0 then
             Response.write "<p class='alert alert-info'>"
