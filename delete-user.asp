@@ -37,5 +37,6 @@
   set objConn = Nothing
   'Displays message to user about if the account was deleted or not
   Session("ErrorMsg") = ErrorMsg
+  'Changes page to transfer.asp
   Server.Transfer("login.asp")
 %>

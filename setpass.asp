@@ -2,10 +2,12 @@
 <% Option Explicit %>
 
 <%
+  'Declaration of variables
   Const adLockOptimistic = 3
   Dim ErrorMsg
   Dim objConn
   Dim strConnection
+  'Opens connection to database
   Set objConn = Server.CreateObject("ADODB.Connection")
   strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -17,7 +19,7 @@
   Dim objRS
   Set objRS = Server.CreateObject("ADODB.Recordset")
   objRS.Open "Users", objConn, , adLockOptimistic
-
+  'Allows the user to change their password
   Do while not objRS.EOF
     if Session("Username") = objRS("Username") then
         objRS.Fields("Password") = Request.Form("setpword")
@@ -32,11 +34,11 @@
     end if
     objRS.MoveNext
   loop
-
+  'Closes connection to database
   objRS.Close
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
-
+  'Changes the page to accounts.asp
   Server.Transfer("accounts.asp")
 %>

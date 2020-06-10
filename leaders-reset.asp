@@ -48,5 +48,6 @@
   set objConn = Nothing
   'Displays message to user about if the account was deleted or not
   Session("ErrorMsg") = ErrorMsg
+  'Changes the page to leaders.asp
   Server.Transfer("leaders.asp")
 %>

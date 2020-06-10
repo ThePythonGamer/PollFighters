@@ -45,5 +45,6 @@
   set objConn = Nothing
   'Displays message to user about if the poll was deleted or not
   Session("ErrorMsg") = ErrorMsg
+  'Changes page to poll.asp
   Server.Transfer("polls.asp")
 %>
