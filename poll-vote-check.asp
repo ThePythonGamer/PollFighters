@@ -93,8 +93,10 @@
                   objRS.Fields("Choice1Votes") = Choice1Votes
                   objRS.Update
                   Choice2Votes = objRS("Choice2Votes")
+                  'Write what the user picked.
                   response.write("You picked: ")
                   response.write(objRS("Choice1"))
+                  'Find out if the user picked the option with the majority votes.
                   if Choice1Votes >= Choice2Votes then
                     InMajority = True
                   end if
@@ -110,6 +112,7 @@
                     InMajority = True
                   end if
                 end if
+              'Display the percentage of choices and current votes.
               Choice1Percent = (Choice1Votes / (Choice1Votes + Choice2Votes)) * 100
               Choice2Percent = (Choice2Votes / (Choice1Votes + Choice2Votes)) * 100
               response.write("<h2>Current votes:</h2><br><h3 id='blue'>")
@@ -134,6 +137,7 @@
             if InMajority = True then
                 response.write("<h2>You were in the majority of voters' decisions!</h2><br>")
             end if
+            'Find out if the user guessed the majority correctly.
             if frmGuess = "Guess1" then
               if Choice1Votes >= Choice2Votes then
                 Guess = True
@@ -154,7 +158,7 @@
             Set objRS = Nothing
             objConn.Close
             Set objConn = Nothing
-            'Opens connection to database
+            'Opens connection to database in order to add the point to the user.
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -162,7 +166,7 @@
 
             Set objRS = Server.CreateObject("ADODB.Recordset")
             objRS.Open "Users", objConn, , adLockOptimistic
-            
+            'Add a point to the user and the pID to make sure the poll doesn't appear on the polls.asp page.
             Do while not objRS.EOF
               if Session("Username") = objRS("Username") then
                 objRS.Fields("TotalVotes") = objRS("TotalVotes") + 1

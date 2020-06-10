@@ -46,8 +46,6 @@
     objRS.MoveNext
   loop
 
-  response.write("pID")
-
   ErrorMsg = "Your poll has been created! Only other users will be able to see and interact with it."
   Session("ErrorMsg") = ErrorMsg
   'Closes connection to database
