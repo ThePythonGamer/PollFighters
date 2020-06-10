@@ -157,7 +157,7 @@
                   response.write(objRS("ID"))
                   response.write("'>Vote</button>")
                   response.write("</form>")
-                  response.write("<form method='post' action='poll-delete.asp' class='needs-validation' id='Btn")
+                  response.write("<form method='post' action='poll-delete.asp' class='needs-validation PollForm' id='Btn")
                   response.write(FormCounter)
                   response.write("' novalidate>")
                   response.write("<button type='submit' class='btn btn-danger' style='float: right;' name='PollID' value='")
@@ -187,7 +187,7 @@
                     If Counter = 1 Then
                       Counter = Counter + 1
                       response.write("<div class='row'>")
-                        response.write("<div class='col custom-box'>")
+                        response.write("<div class='col'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter > 1 and Counter < 3 then
