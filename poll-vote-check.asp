@@ -3,17 +3,22 @@
 
 <html>
   <head>
+    <!--Title of website-->
     <title>PollFighters</title>
+    <!--Displays favicon image-->
     <link rel="icon" href="images/favicon/Favicon-16px.png" type="image/png" sizes="16x16">
     <link rel="icon" href="images/favicon/Favicon-32px.png" type="image/png" sizes="32x32">
     <link rel="icon" href="images/favicon/Favicon-192px.png" type="image/png" sizes="192x192">
+    <!--Links to stylesheets-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
+    <!--Displays the logo-->
     <div class="header">
       <img id="logobanner" src="images/logodark-trans.png">
     </div>
+    <!--Displays the navigation bar where the user can go to different pages of the website-->
     <div id="page-container">
       <div id="content-wrap">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -49,9 +54,11 @@
           <h1>Results:</h1>
           <div class="poll-result">
           <%
+            'Declaration of variables
             Const adLockOptimistic = 3
             Dim objConn
             Dim strConnection
+            'Opens connection to database
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Polls.mdb")
 
@@ -60,7 +67,7 @@
             Dim objRS
             Set objRS = Server.CreateObject("ADODB.Recordset")
             objRS.Open "Polls", objConn, , adLockOptimistic
-
+            'Declaration of variables
             Dim Choice
             Dim pID
             Dim Choice1Votes
@@ -77,7 +84,7 @@
 
             InMajority = False
             Guess = False
-
+            'Checks if users vote was in the majority
             Do while not objRS.EOF
               if objRS("ID") = Cint(pID) then
                 if Choice = "Option1" then
@@ -142,12 +149,12 @@
             else
               response.write("<h2>You failed to guess the majority correctly. :(</h2>")
             end if
-
+            'Closes connection to database
             objRS.Close 
             Set objRS = Nothing
             objConn.Close
             Set objConn = Nothing
-            
+            'Opens connection to database
             Set objConn = Server.CreateObject("ADODB.Connection")
             strConnection = "DRIVER=Microsoft Access Driver (*.mdb);DBQ=" & Server.MapPath("data\Logins.mdb")
 
@@ -168,7 +175,7 @@
               end if
               objRS.MoveNext
             loop
-
+            'Closes connection to database
             objRS.Close 
             Set objRS = Nothing
             objConn.Close
@@ -177,9 +184,11 @@
           </div>
         </div>
       </div>
+      <!--Displays copyright-->
       <footer id="footer">
         <p>Copyright &copy 2020 <cite>PollFighters</cite></p>
       </footer>
+    <!--Retives bootstrap plugin-->
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
