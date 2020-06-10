@@ -60,25 +60,23 @@
           <!--Allows the user to create title for the poll-->
           <div class="form-group">
             <label for="Title"><b>Title</b></label>
-            <input type="text" name="Title" placeholder="Enter the title of your poll" class="form-control" maxlength ="64" required>
+            <input type="text" name="Title" placeholder="Enter the title of your poll" class="form-control" maxlength ="35" required>
           </div>
           <!--Allows the user to create the first option for the poll-->
           <div class="form-group">
             <label for="Option1"><b>Option 1</b></label>
-            <input type="text" name="Option1" placeholder="Enter the first option" class="form-control" required>
+            <input type="text" name="Option1" placeholder="Enter the first option" class="form-control" maxlength ="25" required>
             <label for="VoteOption1">Vote for Option 1</label>
             <input type="radio" id="VoteOption1" name="vote" value="Voted1" required>
           </div>
           <!--Allows the user to create the second option for the poll-->
           <div class="form-group">
             <label for="Option2"><b>Option 2</b></label>
-            <input type="text" placeholder="Enter the second option" name="Option2" class="form-control" required>
+            <input type="text" placeholder="Enter the second option" name="Option2" class="form-control" maxlength ="25" required>
             <label for="VoteOption2">Vote for Option 2</label>
             <input type="radio" id="VoteOption2" name="vote" value="Voted2" required>
           </div>
-          <!-- <div class="form-group" id="centered-button"> -->
-            <button type="submit" class="btn btn-success" id="centered-button">Submit</button>
-          <!-- </div> -->
+          <button type="submit" class="btn btn-success" id="centered-button">Submit</button>
         </form>
       </div>
       <footer id="footer">
