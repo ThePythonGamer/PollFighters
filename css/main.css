@@ -166,9 +166,16 @@ tr:nth-child(odd) {
 }
 
 .PollForm {
-  border: white solid 5px !important; 
-  background-color: var(--bg-accent) !important; 
-  margin: 15px 50px !important ; 
+  border: white solid 3px;
+  border-radius: 10px;
+  background-color: var(--bg-accent); 
+  margin: 15px;
+  padding: 15px;
+  width: 300px;
+}
+
+.NoBorder {
+  border: none !important;
 }
 
 /* Id's */

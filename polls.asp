@@ -126,11 +126,11 @@
 
               Sub PollOutput()
                 response.write("<li>")
-                response.write(objRs("PTitle"))
-                response.write("<br>")
                 response.write("<form method='post' action='poll-vote-check.asp' class='needs-validation PollForm' id='form")
                 response.write(FormCounter)
-                response.write("' novalidate> <div class='form-group'>")
+                response.write("' novalidate>")
+                response.write(objRs("PTitle"))
+                response.write("<br> <div class='form-group'>")
                 response.write("<input required type='radio' id='Option1")
                 response.write(FormCounter)
                 response.write("' name='Choice' value='Option1'>")
@@ -193,18 +193,18 @@
                   if AlreadyVoted = False then
                     If Counter = 1 Then
                       Counter = Counter + 1
-                      response.write("<div class='row'>")
-                        response.write("<div class='col'>")
+                      response.write("<div class='row align-items-end'>")
+                        response.write("<div class='col NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter > 1 and Counter < 3 then
                       Counter = Counter + 1
-                        response.write("<div class='col'>")
+                        response.write("<div class='col NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter = 3 then
                       Counter = 1
-                        response.write("<div class='col'>")
+                        response.write("<div class='col NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                       response.write("</div>")
