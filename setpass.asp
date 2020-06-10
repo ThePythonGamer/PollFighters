@@ -39,6 +39,6 @@
   set objRs = Nothing
   objConn.Close
   set objConn = Nothing
-
+  'Changes the page to accounts.asp
   Server.Transfer("accounts.asp")
 %>
