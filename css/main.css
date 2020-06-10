@@ -164,6 +164,13 @@ tr:nth-child(odd) {
   margin-right: auto;
   width: 33%;
 }
+
+.PollForm {
+  border: white solid 5px !important; 
+  background-color: var(--bg-accent) !important; 
+  margin: 15px 50px !important ; 
+}
+
 /* Id's */
 #credits {
   list-style-type: none;
