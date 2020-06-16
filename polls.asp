@@ -228,17 +228,17 @@
                     If Counter = 1 Then
                       Counter = Counter + 1
                       response.write("<div class='row align-items-end'>")
-                        response.write("<div class='col-4 NoBorder'>")
+                        response.write("<div class='col-lg-4 col-sm-12 col-md-12 NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter > 1 and Counter < 3 then
                       Counter = Counter + 1
-                        response.write("<div class='col-4 NoBorder'>")
+                        response.write("<div class='col-lg-4 col-sm-12 col-md-12 NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                     elseif Counter = 3 then
                       Counter = 1
-                        response.write("<div class='col-4 NoBorder'>")
+                        response.write("<div class='col-lg-4 col-sm-12 col-md-12 NoBorder'>")
                           call PollOutput
                         response.write("</div>")
                       response.write("</div>")
